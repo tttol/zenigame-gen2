@@ -35,19 +35,30 @@ export default function TodoList() {
     <div>
       <h1>Todos</h1>
       <button onClick={async () => {
-        // create a new Todo with the following attributes
         const { errors, data: newTodo } = await client.models.Todo.create({
-          // prompt the user to enter the title
-          content: window.prompt("title"),
+          content: window.prompt("title is ..."),
           done: false,
           priority: 'medium'
         })
         console.log(errors, newTodo);
-      }}>Create </button>   
+      }}>Create Todo</button>   
     <ul>
         {
         todos.map((todo) => (
-            <li key={todo.id}>{todo.content}</li>
+            <li key={todo.id}>content: {todo.content}, done: {todo.done}, priority: {todo.priority}</li>
+        ))}
+    </ul>
+    <h1>Samples</h1>
+      <button onClick={async () => {
+        const { errors, data: newSample } = await client.models.Gen2Sample.create({
+          value: window.prompt("value is ..."),
+        })
+        console.log(errors, newSample);
+      }}>Create Sample</button>   
+    <ul>
+        {
+        samples.map((sample) => (
+            <li key={sample.id}>value: {sample.value}</li>
         ))}
     </ul>
     </div>
