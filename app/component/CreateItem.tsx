@@ -1,12 +1,13 @@
-import { CreateItemInput } from "@/API";
-import { createItem } from "@/graphql/mutations";
+import { Schema } from "@/amplify/data/resource";
 import { generateClient } from "aws-amplify/api";
 import Image from "next/image";
 import React, { useState } from "react";
 import sponImage from "./../spon.webp";
 import tolImage from "./../tol.jpg";
 
-const CreateItem: React.FC<{ items: Item[] }> = ({ items }) => {
+const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items }) => {
+  const client = generateClient<Schema>();
+
   const generateCurrentDate = () => {
     const date = new Date();
     const year = date.getFullYear();
@@ -22,8 +23,6 @@ const CreateItem: React.FC<{ items: Item[] }> = ({ items }) => {
   const [paidAt, setPaidAt] = useState(generateCurrentDate());
   const [paidBy, setPaidBy] = useState("");
   const [selectedLabel, setSelectedLabel] = useState("");
-
-  const client = generateClient();
 
   const handleItemNameChnage = (e: React.ChangeEvent<HTMLInputElement>) => {
     setItemName(e.target.value);
@@ -68,8 +67,8 @@ const CreateItem: React.FC<{ items: Item[] }> = ({ items }) => {
         金額: ${price}
         ラベル: ${label}
         支払日: ${paidAt}
-        透支払い: ${paidBy === "tol" ? "済" : "未"}
-        早慧支払い: ${paidBy === "spon" ? "済" : "未"}
+        TOL支払い: ${paidBy === "tol" ? "済" : "未"}
+        SPON支払い: ${paidBy === "spon" ? "済" : "未"}
       `);
 
       setItemName("");
@@ -82,24 +81,19 @@ const CreateItem: React.FC<{ items: Item[] }> = ({ items }) => {
     }
   };
 
-  const insertItem = () => {
-    const item: CreateItemInput = {
-      id: generateRandomString(),
-      name: itemName,
-      price: Number(price),
-      label: label,
-      paidAt: paidAt,
-      paidByTol: paidBy === "tol",
-      paidByspon: paidBy === "spon",
-    };
-
+  const insertItem = async () => {
+    
     try {
-      client.graphql({
-        query: createItem,
-        variables: {
-          input: item,
-        },
-      });
+      const { errors, data: newTodo } = await client.models.Detail.create({
+        id: generateRandomString(),
+        name: itemName,
+        price: Number(price),
+        label: label,
+        paidAt: paidAt,
+        paidByTol: paidBy === "tol",
+        paidBySpon: paidBy === "spon",
+      })
+      console.log(errors, newTodo);
     } catch (err) {
       throw new Error(`error creating todo: ${JSON.stringify(err)}}`);
     }

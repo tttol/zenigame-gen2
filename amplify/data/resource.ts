@@ -24,8 +24,6 @@ const schema = a.schema({
       paidByTol: a.boolean(),
       paidBySpon: a.boolean(),
       paidAt: a.string(),
-      createdAt: a.string(),
-      updatedAt: a.string(),
     })
     .authorization([a.allow.owner()]),
 });

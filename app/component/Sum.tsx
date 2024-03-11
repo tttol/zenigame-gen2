@@ -1,14 +1,15 @@
+import { Schema } from "@/amplify/data/resource";
 import dotenv from "dotenv";
 import React from 'react';
 
 dotenv.config();
 
-const Sum: React.FC<{ items: Item[] }> = ({ items }) => {
-    const getDebtTol = (items :Item[]) => items.filter((item) => !item.paidByTol).reduce((sum, item) => sum + item.price, 0);
-    const getDebtspon = (items :Item[]) => items.filter((item) => !item.paidBySpon).reduce((sum, item) => sum + item.price, 0);
+const Sum: React.FC<{ details :Schema["Detail"][] }> = ({ details: details }) => {
+    const getDebtTol = (details :Schema["Detail"][]) => details.filter((detail) => !detail.paidByTol).reduce((sum, detail) => sum + (detail.price ?? 0), 0);
+    const getDebtspon = (details :Schema["Detail"][]) => details.filter((detail) => !detail.paidBySpon).reduce((sum, detail) => sum + (detail.price ?? 0), 0);
     
-    const debtTol = getDebtTol(items);
-    const debtSpon = getDebtspon(items);
+    const debtTol = getDebtTol(details);
+    const debtSpon = getDebtspon(details);
 
     const priceFormatter = new Intl.NumberFormat('ja-JP', {
         style: 'currency',

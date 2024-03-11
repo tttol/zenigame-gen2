@@ -1,51 +1,42 @@
 "use client"
 
+import { Schema } from '@/amplify/data/resource';
 import { Authenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
-import { Amplify } from 'aws-amplify';
 import { generateClient } from 'aws-amplify/api';
 import { useEffect, useState } from 'react';
-// import awsExports from "../aws-exports";
-// import { listItems } from '../graphql/queries';
 import CreateItem from './component/CreateItem';
 import Detail from './component/Detail';
 import Sum from './component/Sum';
 import Version from './component/Version';
 
-// Amplify.configure(awsExports);
-
-const client = generateClient();
+const client = generateClient<Schema>();
 
 const Home: React.FC = () => {
-  const [items, setItems] = useState<Item[]>([]);
+  const [details, setDetails] = useState<Schema["Detail"][]>([]);
+  const [displayDetails, setDisplayDetails] = useState<Schema["Detail"][]>([]);
+  
   useEffect(() => {
-    fetchItems();
+    fetchDetails();
   }, []);
 
-  const [displayItems, setDisplayItems] = useState<Item[]>([]);
-
-  const fetchItems = async () => {
-    // const { data } = await client.models.Gen2Sample.list();
-    // console.log(`fetched Gen2Sample data: ${data}`);
-    // setSamples(data ?? []);
-
+  const fetchDetails = async () => {
     try {
-      const result = await client.graphql({
-        query: listItems,
-      });
-      setItems(result.data.listItems.items);
-      setDisplayItems(result.data.listItems.items);
-    } catch (err) {
-      alert(`サーバーからの明細取得に失敗しました. ${JSON.stringify(err)}`);
+      const { data } = await client.models.Detail.list();
+      console.log(`fetched Detail data: ${data}`);
+      setDetails(data ?? []);
+      setDisplayDetails(data ?? []);
+    } catch (error) {
+      alert(`サーバーからの明細取得に失敗しました. ${JSON.stringify(error)}`);
     }
   }
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
-      const filterdItems = displayItems.filter((item) => item.label === "ベビー用品");
-      setDisplayItems(filterdItems);
+      const filterdDetails = displayDetails.filter((detail) => detail.label === "ベビー用品");
+      setDisplayDetails(filterdDetails);
     } else {
-      setDisplayItems(items);
+      setDisplayDetails(details);
     }
   };
 
@@ -55,8 +46,8 @@ const Home: React.FC = () => {
       <main>
         <div className='w-[90%] mx-auto'>
           <Version />
-          <Sum items={displayItems} />
-          <CreateItem items={displayItems} />
+          <Sum details={displayDetails} />
+          <CreateItem details={displayDetails} />
           <div className="text-right  mb-3 mt-3 text-lg">
             <input
               id="filter"
@@ -69,7 +60,7 @@ const Home: React.FC = () => {
               </span>
             </label>
           </div>
-          <Detail items={displayItems} />
+          <Detail details={displayDetails} />
         </div>
       </main>
     </Authenticator>

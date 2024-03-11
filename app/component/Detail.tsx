@@ -1,3 +1,4 @@
+import { Schema } from "@/amplify/data/resource";
 import { fetchAuthSession } from "aws-amplify/auth";
 import AWS from "aws-sdk";
 import dotenv from "dotenv";
@@ -10,11 +11,11 @@ import tolImage from "./../tol.jpg";
 dotenv.config();
 let dynamoDb: AWS.DynamoDB.DocumentClient;
 
-const Detail: React.FC<{ items: Item[] }> = ({ items }) => {  
-  const [displayItems, setDisplayItems] = useState<Item[]>([]);
+const Detail: React.FC<{ details: Schema["Detail"][] }> = ({ details: details }) => {  
+  const [displayDetails, setDisplayDetails] = useState<Schema["Detail"][]>([]);
   useEffect(() => {
-    setDisplayItems(items);
-  }, [items]);
+    setDisplayDetails(details);
+  }, [details]);
 
   async function getCurrentCredentials() {
     try {
@@ -43,7 +44,7 @@ const Detail: React.FC<{ items: Item[] }> = ({ items }) => {
   const updateAllItemsPaid = () => {
     if (!window.confirm("すべての明細を支払い済みにします。よろしいですか？"))
       return;
-    const targetItems = items.filter(
+    const targetItems = details.filter(
       (item) => !item.paidByTol || !item.paidBySpon
     );
     try {
@@ -98,7 +99,7 @@ const Detail: React.FC<{ items: Item[] }> = ({ items }) => {
   return (
     <div className="p-3 bg-slate-500 text-white rounded-xl">
       <div className="text-right">
-        {items.filter((item) => !item.paidByTol || !item.paidBySpon).length} 件
+        {details.filter((item) => !item.paidByTol || !item.paidBySpon).length} 件
       </div>
       <div className="text-right  mb-3 mt-3">
         <span
@@ -122,7 +123,7 @@ const Detail: React.FC<{ items: Item[] }> = ({ items }) => {
       </div>
 
       {
-      displayItems
+      displayDetails
         .filter((item) => !item.paidByTol || !item.paidBySpon)
         .sort(
           (a, b) => {
