@@ -5,11 +5,15 @@ import React from 'react';
 dotenv.config();
 
 const Sum: React.FC<{ details :Schema["Detail"][] }> = ({ details: details }) => {
-    const getDebtTol = (details :Schema["Detail"][]) => details.filter((detail) => !detail.paidByTol).reduce((sum, detail) => sum + (detail.price ?? 0), 0);
-    const getDebtspon = (details :Schema["Detail"][]) => details.filter((detail) => !detail.paidBySpon).reduce((sum, detail) => sum + (detail.price ?? 0), 0);
+    dotenv.config();
+    const USER_A = process.env.USER_A ?? "User A";
+    const USER_B = process.env.USER_B ?? "User B";
+
+    const getDebtUserA = (details :Schema["Detail"][]) => details.filter((detail) => !detail.paidByUserA).reduce((sum, detail) => sum + (detail.price ?? 0), 0);
+    const getDebtUserB = (details :Schema["Detail"][]) => details.filter((detail) => !detail.paidByUserB).reduce((sum, detail) => sum + (detail.price ?? 0), 0);
     
-    const debtTol = getDebtTol(details);
-    const debtSpon = getDebtspon(details);
+    const debtUserA = getDebtUserA(details);
+    const debtUserB = getDebtUserB(details);
 
     const priceFormatter = new Intl.NumberFormat('ja-JP', {
         style: 'currency',
@@ -21,16 +25,16 @@ const Sum: React.FC<{ details :Schema["Detail"][] }> = ({ details: details }) =>
             <p className='text-3xl mb-3'>SUMMARY</p>
             <div className='min-h-max m-1 p-3 bg-blue-400 text-slate-100 rounded-xl'>
                 <div>
-                    <p>TOL - 未払い差引合計</p>
-                    <p className='font-bold text-3xl'>{priceFormatter.format(Math.max((debtTol - debtSpon)/2, 0))}</p>
-                    <p className='text-slate-300 mt-2'>{priceFormatter.format(debtTol/2)}(差引前)</p>
+                    <p>{USER_A} - 未払い差引合計</p>
+                    <p className='font-bold text-3xl'>{priceFormatter.format(Math.max((debtUserA - debtUserB)/2, 0))}</p>
+                    <p className='text-slate-300 mt-2'>{priceFormatter.format(debtUserA/2)}(差引前)</p>
                 </div>
             </div>
             <div className='min-h-max m-1 mt-3  p-3 bg-pink-400 text-slate-100 rounded-xl'>
                 <div>
-                    <p>SPON - 未払い差引合計</p>
-                    <p className='font-blod text-3xl'>{priceFormatter.format(Math.max((debtSpon - debtTol)/2, 0))}</p>
-                    <p className='text-slate-300 mt-2'>{priceFormatter.format(debtSpon/2)}(差引前)</p>
+                    <p>{USER_B} - 未払い差引合計</p>
+                    <p className='font-blod text-3xl'>{priceFormatter.format(Math.max((debtUserB - debtUserA)/2, 0))}</p>
+                    <p className='text-slate-300 mt-2'>{priceFormatter.format(debtUserB/2)}(差引前)</p>
                 </div>
             </div>
         </div>

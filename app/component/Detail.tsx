@@ -2,8 +2,8 @@ import { Schema } from "@/amplify/data/resource";
 import { generateClient } from "aws-amplify/api";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import sponImage from "./../spon.webp";
-import tolImage from "./../tol.jpg";
+import userAImage from "./../userA.png";
+import userBImage from "./../userB.webp";
 
 const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
   details: details,
@@ -18,7 +18,7 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
     if (!window.confirm("すべての明細を支払い済みにします。よろしいですか？"))
       return;
     const targetDetails = details.filter(
-      (item) => !item.paidByTol || !item.paidBySpon
+      (item) => !item.paidByUserA || !item.paidByUserB
     );
     console.log(`update targetDetails=${JSON.stringify(targetDetails)}`);
     for (const target of targetDetails) {
@@ -33,8 +33,8 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
       name: detail.name,
       price: detail.price,
       label: detail.label,
-      paidByTol: true,
-      paidBySpon: true,
+      paidByUserA: true,
+      paidByUserB: true,
       paidAt: detail.paidAt,
     };
     const { data: updatedDetail, errors } = await client.models.Detail.update(target);
@@ -57,7 +57,7 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
   return (
     <div className="p-3 bg-slate-500 text-white rounded-xl">
       <div className="text-right">
-        {details.filter((item) => !item.paidByTol || !item.paidBySpon).length}{" "}
+        {details.filter((item) => !item.paidByUserA || !item.paidByUserB).length}{" "}
         件
       </div>
       <div className="text-right  mb-3 mt-3">
@@ -82,7 +82,7 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
       </div>
 
       {displayDetails
-        .filter((detail) => !detail.paidByTol || !detail.paidBySpon)
+        .filter((detail) => !detail.paidByUserA || !detail.paidByUserB)
         .sort((a, b) => {
           const aPaidAt = a.paidAt ? new Date(a.paidAt).getTime() : 0;
           const bPaidAt = b.paidAt ? new Date(b.paidAt).getTime() : 0;
@@ -92,17 +92,17 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
           <div key={detail.id} className="border-b-2 border-slate-400 mb-5">
             <p>
               <span className="pl-2 mr-2">
-                {detail.paidByTol ? (
+                {detail.paidByUserA ? (
                   <Image
-                    src={tolImage}
-                    alt="tol"
+                    src={userAImage}
+                    alt="userA"
                     className="rounded-full w-10 h-10 inline"
                   />
                 ) : null}
-                {detail.paidBySpon ? (
+                {detail.paidByUserB ? (
                   <Image
-                    src={sponImage}
-                    alt="spon"
+                    src={userBImage}
+                    alt="userB"
                     className="rounded-full w-10 h-10 inline"
                   />
                 ) : null}

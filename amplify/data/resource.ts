@@ -21,8 +21,8 @@ const schema = a.schema({
       name: a.string(),
       price: a.integer(),
       label: a.string(),
-      paidByTol: a.boolean(),
-      paidBySpon: a.boolean(),
+      paidByUserA: a.boolean(),
+      paidByUserB: a.boolean(),
       paidAt: a.string(),
     })
     .authorization([a.allow.owner()]),

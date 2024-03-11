@@ -3,18 +3,18 @@ class Item {
     name: string;
     price: number;
     label?: string | null;
-    paidByTol: boolean;
-    paidBySpon: boolean;
+    paidByUserA: boolean;
+    paidByUserB: boolean;
     paidAt: string;
     createdAt: string;
     updatedAt: string;
 
     constructor(data: any) {
-        this.paidByTol = data.paidByTol.BOOL;
+        this.paidByUserA = data.paidByUserA.BOOL;
         this.paidAt = data.paidAt.S;
         this.createdAt = data.createdAt.S;
         this.updatedAt = data.updatedAt.S;
-        this.paidBySpon = data.paidBySpon.BOOL;
+        this.paidByUserB = data.paidByUserB.BOOL;
         this.price = Number(data.price.N);
         this.label = data.label.S;
         this.id = data.id.S;

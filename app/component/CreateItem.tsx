@@ -1,11 +1,16 @@
 import { Schema } from "@/amplify/data/resource";
 import { generateClient } from "aws-amplify/api";
+import dotenv from "dotenv";
 import Image from "next/image";
 import React, { useState } from "react";
-import sponImage from "./../spon.webp";
-import tolImage from "./../tol.jpg";
+import userAImage from "./../userA.png";
+import userBImage from "./../userB.webp";
 
 const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items }) => {
+  dotenv.config();
+  const USER_A = process.env.USER_A ?? "user A";
+  const USER_B = process.env.USER_B ?? "user B";
+
   const client = generateClient<Schema>();
 
   const generateCurrentDate = () => {
@@ -67,8 +72,8 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
         金額: ${price}
         ラベル: ${label}
         支払日: ${paidAt}
-        TOL支払い: ${paidBy === "tol" ? "済" : "未"}
-        SPON支払い: ${paidBy === "spon" ? "済" : "未"}
+        ${USER_A}支払い: ${paidBy === "userA" ? "済" : "未"}
+        ${USER_B}支払い: ${paidBy === "userB" ? "済" : "未"}
       `);
 
       setItemName("");
@@ -90,8 +95,8 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
         price: Number(price),
         label: label,
         paidAt: paidAt,
-        paidByTol: paidBy === "tol",
-        paidBySpon: paidBy === "spon",
+        paidByUserA: paidBy === "userA",
+        paidByUserB: paidBy === "userB",
       })
       console.log(errors, newDetail);
     } catch (err) {
@@ -186,18 +191,18 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
 
             <div className="flex items-center">
               <input
-                id="paidByTol"
+                id="paidByUserA"
                 type="radio"
-                value="tol"
-                checked={paidBy === "tol"}
+                value="userA"
+                checked={paidBy === "userA"}
                 onChange={handleRadioChange}
                 className="mr-2"
               />
-              <label htmlFor="paidByTol">
-                <span>透支払い</span>
+              <label htmlFor="paidByUserA">
+                <span>{USER_A}支払い</span>
                 <Image
-                  src={tolImage}
-                  alt="tol"
+                  src={userAImage}
+                  alt="userA"
                   className="rounded-full w-7 h-7 inline"
                 />
               </label>
@@ -205,18 +210,18 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
 
             <div className="flex items-center mb-3">
               <input
-                id="paidByspon"
+                id="paidByuserB"
                 type="radio"
-                value="spon"
-                checked={paidBy === "spon"}
+                value="userB"
+                checked={paidBy === "userB"}
                 onChange={handleRadioChange}
                 className="mr-2"
               />
-              <label htmlFor="paidByspon">
-                <span>早慧支払い</span>
+              <label htmlFor="paidByuserB">
+                <span>{USER_B}支払い</span>
                 <Image
-                  src={sponImage}
-                  alt="spon"
+                  src={userBImage}
+                  alt="userB"
                   className="rounded-full w-7 h-7 inline"
                 />
               </label>
