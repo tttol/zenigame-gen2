@@ -1,88 +1,45 @@
 import { Schema } from "@/amplify/data/resource";
-import { fetchAuthSession } from "aws-amplify/auth";
-import AWS from "aws-sdk";
-import dotenv from "dotenv";
+import { generateClient } from "aws-amplify/api";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import sponImage from "./../spon.webp";
 import tolImage from "./../tol.jpg";
 
-
-dotenv.config();
-let dynamoDb: AWS.DynamoDB.DocumentClient;
-
 const Detail: React.FC<{ details: Schema["Detail"][] }> = ({ details: details }) => {  
+  const client = generateClient<Schema>();
   const [displayDetails, setDisplayDetails] = useState<Schema["Detail"][]>([]);
   useEffect(() => {
     setDisplayDetails(details);
   }, [details]);
-
-  async function getCurrentCredentials() {
-    try {
-      return (await fetchAuthSession()).credentials;
-    } catch (err) {
-      throw new Error(`Failed to get current credentials. ${JSON.stringify(err)}`);
-    }
-  }
-  const response = getCurrentCredentials();
-  response.then((credentials) => {
-    const accessKeyId :string = credentials?.accessKeyId ?? process.env.AWS_ACCESS_KEY_ID ?? "";
-    const secretAccessKey :string = credentials?.secretAccessKey ?? process.env.AWS_SECRET_ACCESS_KEY ?? "";
-
-    dynamoDb = new AWS.DynamoDB.DocumentClient({
-      region: "ap-northeast-1",
-      credentials: {
-        accessKeyId: accessKeyId,
-        secretAccessKey: secretAccessKey,
-        sessionToken: credentials?.sessionToken,
-      },
-    });
-  }).catch((err) => {
-    alert(`Cognitoを用いたAWS SDK認証に失敗しました. ${err}`);
-  });
   
-  const updateAllItemsPaid = () => {
-    if (!window.confirm("すべての明細を支払い済みにします。よろしいですか？"))
-      return;
-    const targetItems = details.filter(
+  const updateAllItemsPaid = async () => {
+    if (!window.confirm("すべての明細を支払い済みにします。よろしいですか？")) return;
+    const targetDetails = details.filter(
       (item) => !item.paidByTol || !item.paidBySpon
     );
     try {
-      batchWrite(targetItems);
+      for (const target of targetDetails) {
+        await update(target);
+      }
       alert(`すべての明細を支払い済みに更新しました.`);
     } catch (err) {
       alert(`更新に失敗しました. ${err}`);
     }
   };
 
-  const batchWrite = (targetItems: Item[]) => {
-    const chunks = [];
-    for (let i = 0; i < targetItems.length; i += 25) {
-      chunks.push(targetItems.slice(i, i + 25));
-    }
-
-    for (const chunk of chunks) {
-      const params = {
-        RequestItems: {
-          ["Item-5dayiivzgjemff3dacha44aczq-dev"]: chunk.map((item) => ({
-            PutRequest: {
-              Item: {
-                ...item,
-                paidByTol: true,
-                paidBySpon: true,
-              },
-            },
-          })),
-        },
-      };
-
-      try {
-        dynamoDb.batchWrite(params).promise();
-      } catch (err) {
-        throw new Error(`Failed to update items. ${JSON.stringify(err)}`);
-      }
-    }
-  };
+  const update = async (detail: Schema["Detail"]) => {
+    const target = {
+        id: detail.id ?? "",
+        name: detail.name,
+        price: detail.price,
+        label: detail.label,
+        paidByTol: detail.paidByTol,
+        paidBySpon: detail.paidBySpon,
+        paidAt: detail.paidAt,
+    };
+    const {data: updatedDetail, errors} = await client.models.Detail.update(target);
+    console.log(errors, updatedDetail);
+  }
 
   const priceFormatter = new Intl.NumberFormat("ja-JP", {
     style: "currency",
@@ -124,7 +81,7 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({ details: details })
 
       {
       displayDetails
-        .filter((item) => !item.paidByTol || !item.paidBySpon)
+        .filter((detail) => !detail.paidByTol || !detail.paidBySpon)
         .sort(
           (a, b) => {
             const aPaidAt = a.paidAt ? new Date(a.paidAt).getTime() : 0;
@@ -132,18 +89,18 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({ details: details })
             return bPaidAt - aPaidAt;
           }
         )
-        .map((item) => (
-          <div key={item.id} className="border-b-2 border-slate-400 mb-5">
+        .map((detail) => (
+          <div key={detail.id} className="border-b-2 border-slate-400 mb-5">
             <p>
               <span className="pl-2 mr-2">
-                {item.paidByTol ? (
+                {detail.paidByTol ? (
                   <Image
                     src={tolImage}
                     alt="tol"
                     className="rounded-full w-10 h-10 inline"
                   />
                 ) : null}
-                {item.paidBySpon ? (
+                {detail.paidBySpon ? (
                   <Image
                     src={sponImage}
                     alt="spon"
@@ -151,13 +108,13 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({ details: details })
                   />
                 ) : null}
               </span>
-              <span className="font-bold">{item.name}</span>
+              <span className="font-bold">{detail.name}</span>
             </p>
             <p className="flex items-end mb-2">
-              <span>{priceFormatter.format(item.price)}</span>
+              <span>{priceFormatter.format(detail.price ?? 0)}</span>
               &nbsp;-&nbsp;
-              <span>{item.paidAt ? dateFormatter.format(new Date(item.paidAt)) : "支払日未入力"}</span>
-              {item.label && (<span className="bg-blue-300 font-bold py-1 px-2 ml-2 text-white rounded-full text-xs">{item.label}</span>)}
+              <span>{detail.paidAt ? dateFormatter.format(new Date(detail.paidAt)) : "支払日未入力"}</span>
+              {detail.label && (<span className="bg-blue-300 font-bold py-1 px-2 ml-2 text-white rounded-full text-xs">{detail.label}</span>)}
             </p>
           </div>
         ))

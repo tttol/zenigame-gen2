@@ -2,7 +2,7 @@ import React from "react";
 
 const Version: React.FC = () => {
   const getAppVersion = () => {
-    const packageJson = require("../../../package.json");
+    const packageJson = require("../../package.json");
     return packageJson.version;
   };
   return (

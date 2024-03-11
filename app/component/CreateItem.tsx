@@ -84,7 +84,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
   const insertItem = async () => {
     
     try {
-      const { errors, data: newTodo } = await client.models.Detail.create({
+      const { errors, data: newDetail } = await client.models.Detail.create({
         id: generateRandomString(),
         name: itemName,
         price: Number(price),
@@ -93,7 +93,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
         paidByTol: paidBy === "tol",
         paidBySpon: paidBy === "spon",
       })
-      console.log(errors, newTodo);
+      console.log(errors, newDetail);
     } catch (err) {
       throw new Error(`error creating todo: ${JSON.stringify(err)}}`);
     }
