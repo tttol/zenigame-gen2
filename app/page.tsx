@@ -25,6 +25,10 @@ const Home: React.FC = () => {
   const [displayItems, setDisplayItems] = useState<Item[]>([]);
 
   const fetchItems = async () => {
+    // const { data } = await client.models.Gen2Sample.list();
+    // console.log(`fetched Gen2Sample data: ${data}`);
+    // setSamples(data ?? []);
+
     try {
       const result = await client.graphql({
         query: listItems,
