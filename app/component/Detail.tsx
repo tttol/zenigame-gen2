@@ -5,41 +5,42 @@ import React, { useEffect, useState } from "react";
 import sponImage from "./../spon.webp";
 import tolImage from "./../tol.jpg";
 
-const Detail: React.FC<{ details: Schema["Detail"][] }> = ({ details: details }) => {  
+const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
+  details: details,
+}) => {
   const client = generateClient<Schema>();
   const [displayDetails, setDisplayDetails] = useState<Schema["Detail"][]>([]);
   useEffect(() => {
     setDisplayDetails(details);
   }, [details]);
-  
-  const updateAllItemsPaid = async () => {
-    if (!window.confirm("すべての明細を支払い済みにします。よろしいですか？")) return;
+
+  const updateAllDetailsPaid = async () => {
+    if (!window.confirm("すべての明細を支払い済みにします。よろしいですか？"))
+      return;
     const targetDetails = details.filter(
       (item) => !item.paidByTol || !item.paidBySpon
     );
-    try {
-      for (const target of targetDetails) {
-        await update(target);
-      }
-      alert(`すべての明細を支払い済みに更新しました.`);
-    } catch (err) {
-      alert(`更新に失敗しました. ${err}`);
+    console.log(`update targetDetails=${JSON.stringify(targetDetails)}`);
+    for (const target of targetDetails) {
+      update(target);
     }
+    alert(`すべての明細を支払い済みに更新しました.`);
   };
 
   const update = async (detail: Schema["Detail"]) => {
     const target = {
-        id: detail.id ?? "",
-        name: detail.name,
-        price: detail.price,
-        label: detail.label,
-        paidByTol: detail.paidByTol,
-        paidBySpon: detail.paidBySpon,
-        paidAt: detail.paidAt,
+      id: detail.id ?? "",
+      name: detail.name,
+      price: detail.price,
+      label: detail.label,
+      paidByTol: true,
+      paidBySpon: true,
+      paidAt: detail.paidAt,
     };
-    const {data: updatedDetail, errors} = await client.models.Detail.update(target);
-    console.log(errors, updatedDetail);
-  }
+    const { data: updatedDetail, errors } = await client.models.Detail.update(target);
+    console.log(`errors=${JSON.stringify(errors)}`);
+    console.log(`updatedDetail=${JSON.stringify(updatedDetail)}`);
+  };
 
   const priceFormatter = new Intl.NumberFormat("ja-JP", {
     style: "currency",
@@ -56,11 +57,12 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({ details: details })
   return (
     <div className="p-3 bg-slate-500 text-white rounded-xl">
       <div className="text-right">
-        {details.filter((item) => !item.paidByTol || !item.paidBySpon).length} 件
+        {details.filter((item) => !item.paidByTol || !item.paidBySpon).length}{" "}
+        件
       </div>
       <div className="text-right  mb-3 mt-3">
         <span
-          onClick={updateAllItemsPaid}
+          onClick={updateAllDetailsPaid}
           className="bg-purple-400 text-white font-bold py-2 px-2 rounded-full inline-flex"
         >
           すべて支払い済みにする
@@ -79,16 +81,13 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({ details: details })
         </span>
       </div>
 
-      {
-      displayDetails
+      {displayDetails
         .filter((detail) => !detail.paidByTol || !detail.paidBySpon)
-        .sort(
-          (a, b) => {
-            const aPaidAt = a.paidAt ? new Date(a.paidAt).getTime() : 0;
-            const bPaidAt = b.paidAt ? new Date(b.paidAt).getTime() : 0;
-            return bPaidAt - aPaidAt;
-          }
-        )
+        .sort((a, b) => {
+          const aPaidAt = a.paidAt ? new Date(a.paidAt).getTime() : 0;
+          const bPaidAt = b.paidAt ? new Date(b.paidAt).getTime() : 0;
+          return bPaidAt - aPaidAt;
+        })
         .map((detail) => (
           <div key={detail.id} className="border-b-2 border-slate-400 mb-5">
             <p>
@@ -113,12 +112,19 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({ details: details })
             <p className="flex items-end mb-2">
               <span>{priceFormatter.format(detail.price ?? 0)}</span>
               &nbsp;-&nbsp;
-              <span>{detail.paidAt ? dateFormatter.format(new Date(detail.paidAt)) : "支払日未入力"}</span>
-              {detail.label && (<span className="bg-blue-300 font-bold py-1 px-2 ml-2 text-white rounded-full text-xs">{detail.label}</span>)}
+              <span>
+                {detail.paidAt
+                  ? dateFormatter.format(new Date(detail.paidAt))
+                  : "支払日未入力"}
+              </span>
+              {detail.label && (
+                <span className="bg-blue-300 font-bold py-1 px-2 ml-2 text-white rounded-full text-xs">
+                  {detail.label}
+                </span>
+              )}
             </p>
           </div>
-        ))
-        }
+        ))}
     </div>
   );
 };
