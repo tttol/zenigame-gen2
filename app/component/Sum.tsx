@@ -6,8 +6,8 @@ dotenv.config();
 
 const Sum: React.FC<{ details :Schema["Detail"][] }> = ({ details: details }) => {
     dotenv.config();
-    const USER_A = process.env.USER_A ?? "User A";
-    const USER_B = process.env.USER_B ?? "User B";
+    const USER_A = process.env.NEXT_PUBLIC_USER_A ?? "User A";
+    const USER_B = process.env.NEXT_PUBLIC_USER_B ?? "User B";
 
     const getDebtUserA = (details :Schema["Detail"][]) => details.filter((detail) => !detail.paidByUserA).reduce((sum, detail) => sum + (detail.price ?? 0), 0);
     const getDebtUserB = (details :Schema["Detail"][]) => details.filter((detail) => !detail.paidByUserB).reduce((sum, detail) => sum + (detail.price ?? 0), 0);

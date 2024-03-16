@@ -8,8 +8,8 @@ import userBImage from "./../userB.webp";
 
 const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items }) => {
   dotenv.config();
-  const USER_A = process.env.USER_A ?? "user A";
-  const USER_B = process.env.USER_B ?? "user B";
+  const USER_A = process.env.NEXT_PUBLIC_USER_A ?? "user A";
+  const USER_B = process.env.NEXT_PUBLIC_USER_B ?? "user B";
 
   const client = generateClient<Schema>();
 
