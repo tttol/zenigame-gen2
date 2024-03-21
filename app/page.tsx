@@ -23,7 +23,7 @@ const Home: React.FC = () => {
   const fetchDetails = async () => {
     try {
       const { data } = await client.models.Detail.list();
-      console.log(`fetched Detail data: ${data}`);
+      console.log(`fetched Detail data: ${JSON.stringify(data)}`);
       setDetails(data ?? []);
       setDisplayDetails(data ?? []);
     } catch (error) {

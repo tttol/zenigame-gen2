@@ -18,7 +18,8 @@ const schema = a.schema({
       paidByUserB: a.boolean(),
       paidAt: a.string(),
     })
-    .authorization([a.allow.specificGroup("takahashi-famly", "userPools").to(["create", "read", "update"])]),
+    // .authorization([a.allow.owner()]),
+    .authorization([a.allow.specificGroup("takahashi-famly")]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
