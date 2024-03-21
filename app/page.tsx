@@ -1,7 +1,7 @@
 "use client"
 
 import { Schema } from '@/amplify/data/resource';
-import { Authenticator } from '@aws-amplify/ui-react';
+import { WithAuthenticatorProps, withAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { generateClient } from 'aws-amplify/api';
 import { useEffect, useState } from 'react';
@@ -12,7 +12,7 @@ import Version from './component/Version';
 
 const client = generateClient<Schema>();
 
-const Home: React.FC = () => {
+const Home: React.FC = ({ signOut, user }: WithAuthenticatorProps)  => {
   const [details, setDetails] = useState<Schema["Detail"][]>([]);
   const [displayDetails, setDisplayDetails] = useState<Schema["Detail"][]>([]);
   
@@ -41,11 +41,13 @@ const Home: React.FC = () => {
   };
 
   return (
-    <Authenticator signUpAttributes={['email']}>
+    <>
       <header className="bg-blue-900 text-white p-4 text-center font-black text-4xl">ZENIGAME</header>
       <main>
         <div className='w-[90%] mx-auto'>
+          <button onClick={signOut} className="bg-blue-500 text-white p-2 rounded-lg mt-3 ml-auto">Sign Out</button>
           <Version />
+          <div className='text-right'>Username: {user?.username}</div>
           <Sum details={displayDetails} />
           <CreateItem details={displayDetails} />
           <div className="text-right  mb-3 mt-3 text-lg">
@@ -63,7 +65,7 @@ const Home: React.FC = () => {
           <Detail details={displayDetails} />
         </div>
       </main>
-    </Authenticator>
-  )
+    </>
+  );
 }
-export default Home;
+export default withAuthenticator(Home);
