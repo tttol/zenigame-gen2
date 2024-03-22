@@ -146,14 +146,14 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
               type="text"
               value={itemName}
               onChange={handleItemNameChnage}
-              className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800"
+              className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800  bg-white"
               placeholder="品目"
             />
             <input
               type="number"
               value={price}
               onChange={handlePriceChange}
-              className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800"
+              className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800 bg-white"
               placeholder="金額"
             />
             <select
@@ -162,7 +162,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
                 setSelectedLabel(e.target.value);
                 setLabel(e.target.value);
               }}
-              className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800"
+              className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800 bg-white"
             >
               <option value="">ラベルを選択してください</option>
               {labels.map((l) => (
@@ -176,7 +176,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
               <input
                 type="text"
                 onChange={handleLabelChange}
-                className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800"
+                className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800 bg-white"
                 placeholder="新規に作成するラベル名を入力してください"
               />
             )}
@@ -185,7 +185,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
               type="date"
               value={paidAt}
               onChange={handlePaidAtChange}
-              className="border border-gray-300 rounded-lg mb-4 px-3 py-2 w-full text-slate-800"
+              className="border border-gray-300 rounded-lg mb-4 px-3 py-2 w-full text-slate-800 bg-white"
               placeholder="支払い発生日"
             />
 
@@ -196,7 +196,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
                 value="userA"
                 checked={paidBy === "userA"}
                 onChange={handleRadioChange}
-                className="mr-2"
+                className="mr-2 bg-white"
               />
               <label htmlFor="paidByUserA">
                 <span>{USER_A}支払い</span>

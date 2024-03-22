@@ -22,7 +22,8 @@ const Home: React.FC = ({ signOut, user }: WithAuthenticatorProps)  => {
 
   const fetchDetails = async () => {
     try {
-      const { data } = await client.models.Detail.list();
+      const { errors,  data } = await client.models.Detail.list();
+      console.error(`errors: ${JSON.stringify(errors)}`);
       console.log(`fetched Detail data: ${JSON.stringify(data)}`);
       setDetails(data ?? []);
       setDisplayDetails(data ?? []);
