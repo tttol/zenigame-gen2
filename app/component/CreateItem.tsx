@@ -3,6 +3,7 @@ import { generateClient } from "aws-amplify/api";
 import dotenv from "dotenv";
 import Image from "next/image";
 import React, { useState } from "react";
+import { refreshAuthToken } from "../logic/Authentication";
 import userAImage from "./../userA.png";
 import userBImage from "./../userB.webp";
 
@@ -87,8 +88,8 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
   };
 
   const insertItem = async () => {
-    
     try {
+      refreshAuthToken();
       const { errors, data: newDetail } = await client.models.Detail.create({
         id: generateRandomString(),
         name: itemName,

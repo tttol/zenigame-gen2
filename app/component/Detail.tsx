@@ -2,6 +2,7 @@ import { Schema } from "@/amplify/data/resource";
 import { generateClient } from "aws-amplify/api";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import { refreshAuthToken } from "../logic/Authentication";
 import userAImage from "./../userA.png";
 import userBImage from "./../userB.webp";
 
@@ -21,6 +22,8 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
       (item) => !item.paidByUserA || !item.paidByUserB
     );
     console.log(`update targetDetails=${JSON.stringify(targetDetails)}`);
+
+    refreshAuthToken();
     for (const target of targetDetails) {
       update(target);
     }

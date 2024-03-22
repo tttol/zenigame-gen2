@@ -9,6 +9,7 @@ import CreateItem from './component/CreateItem';
 import Detail from './component/Detail';
 import Sum from './component/Sum';
 import Version from './component/Version';
+import { refreshAuthToken } from './logic/Authentication';
 
 const client = generateClient<Schema>();
 
@@ -21,6 +22,7 @@ const Home: React.FC = ({ signOut, user }: WithAuthenticatorProps)  => {
   }, []);
 
   const fetchDetails = async () => {
+    refreshAuthToken();
     const { errors,  data } = await client.models.Detail.list();
     if (errors) {
       console.error(`errors: ${JSON.stringify(errors)}`);
