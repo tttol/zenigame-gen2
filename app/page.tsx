@@ -21,15 +21,14 @@ const Home: React.FC = ({ signOut, user }: WithAuthenticatorProps)  => {
   }, []);
 
   const fetchDetails = async () => {
-    try {
-      const { errors,  data } = await client.models.Detail.list();
+    const { errors,  data } = await client.models.Detail.list();
+    if (errors) {
       console.error(`errors: ${JSON.stringify(errors)}`);
-      console.log(`fetched Detail data: ${JSON.stringify(data)}`);
-      setDetails(data ?? []);
-      setDisplayDetails(data ?? []);
-    } catch (error) {
-      alert(`サーバーからの明細取得に失敗しました. ${JSON.stringify(error)}`);
     }
+    console.log(`fetched Detail data: ${JSON.stringify(data)}`);
+
+    setDetails(Array.isArray(data) ? data : []);
+    setDisplayDetails(Array.isArray(data) ? data : []);
   }
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
