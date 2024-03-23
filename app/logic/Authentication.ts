@@ -1,8 +1,10 @@
-import { fetchAuthSession } from "aws-amplify/auth";
+import { AuthTokens, fetchAuthSession } from "aws-amplify/auth";
 
-const refreshAuthToken = async () => {
+const refreshAuthToken = async (): Promise<AuthTokens | undefined> => {
   try {
-    return  (await fetchAuthSession()).tokens ?? {};
+    // Cognito認証トークンをリフレッシュする
+    // https://docs.amplify.aws/gen2/build-a-backend/auth/manage-user-session/#retrieve-a-user-session
+    return (await fetchAuthSession()).tokens;
   } catch (err) {
     console.log(err);
   }
