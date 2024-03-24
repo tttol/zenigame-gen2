@@ -1,9 +1,10 @@
 "use client"
 
 import { Schema } from '@/amplify/data/resource';
-import { Authenticator } from '@aws-amplify/ui-react';
+import { WithAuthenticatorProps, withAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { generateClient } from 'aws-amplify/api';
+import { signOut } from 'aws-amplify/auth';
 import { useEffect, useState } from 'react';
 import CreateItem from './component/CreateItem';
 import Detail from './component/Detail';
@@ -12,7 +13,7 @@ import Version from './component/Version';
 
 const client = generateClient<Schema>();
 
-const Home: React.FC = () => {
+const Home: React.FC = ({ user }: WithAuthenticatorProps)  => {
   const [details, setDetails] = useState<Schema["Detail"][]>([]);
   const [displayDetails, setDisplayDetails] = useState<Schema["Detail"][]>([]);
   
@@ -21,14 +22,15 @@ const Home: React.FC = () => {
   }, []);
 
   const fetchDetails = async () => {
-    try {
-      const { data } = await client.models.Detail.list();
-      console.log(`fetched Detail data: ${data}`);
-      setDetails(data ?? []);
-      setDisplayDetails(data ?? []);
-    } catch (error) {
-      alert(`サーバーからの明細取得に失敗しました. ${JSON.stringify(error)}`);
+    const { errors,  data } = await client.models.Detail.list();
+    if (errors) {
+      alert(`認証エラーが発生しました。ログアウトします。: ${JSON.stringify(errors)}`);
+      signOut();
     }
+    console.log(`fetched Detail data: ${JSON.stringify(data)}`);
+
+    setDetails(Array.isArray(data) ? data : []);
+    setDisplayDetails(Array.isArray(data) ? data : []);
   }
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,12 +42,18 @@ const Home: React.FC = () => {
     }
   };
 
+  const logout = () => signOut()
+
   return (
-    <Authenticator signUpAttributes={['email']}>
+    <>
       <header className="bg-blue-900 text-white p-4 text-center font-black text-4xl">ZENIGAME</header>
       <main>
         <div className='w-[90%] mx-auto'>
+          <div className='text-right'>
+            <button onClick={logout} className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg mt-3">Sign Out</button>
+          </div>
           <Version />
+          <div className='text-right'>Username: {user?.username}</div>
           <Sum details={displayDetails} />
           <CreateItem details={displayDetails} />
           <div className="text-right  mb-3 mt-3 text-lg">
@@ -63,7 +71,7 @@ const Home: React.FC = () => {
           <Detail details={displayDetails} />
         </div>
       </main>
-    </Authenticator>
-  )
+    </>
+  );
 }
-export default Home;
+export default withAuthenticator(Home);
