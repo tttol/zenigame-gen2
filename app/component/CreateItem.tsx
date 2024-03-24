@@ -1,9 +1,9 @@
 import { Schema } from "@/amplify/data/resource";
 import { generateClient } from "aws-amplify/api";
+import { signOut } from "aws-amplify/auth";
 import dotenv from "dotenv";
 import Image from "next/image";
 import React, { useState } from "react";
-import { refreshAuthToken } from "../logic/Authentication";
 import userAImage from "./../userA.png";
 import userBImage from "./../userB.webp";
 
@@ -88,20 +88,18 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
   };
 
   const insertItem = async () => {
-    try {
-      refreshAuthToken();
-      const { errors, data: newDetail } = await client.models.Detail.create({
-        id: generateRandomString(),
-        name: itemName,
-        price: Number(price),
-        label: label,
-        paidAt: paidAt,
-        paidByUserA: paidBy === "userA",
-        paidByUserB: paidBy === "userB",
-      })
-      console.log(errors, newDetail);
-    } catch (err) {
-      throw new Error(`error creating todo: ${JSON.stringify(err)}}`);
+    const { errors, data: newDetail } = await client.models.Detail.create({
+      id: generateRandomString(),
+      name: itemName,
+      price: Number(price),
+      label: label,
+      paidAt: paidAt,
+      paidByUserA: paidBy === "userA",
+      paidByUserB: paidBy === "userB",
+    })
+    if (errors) {
+      alert(`認証エラーが発生しました。ログアウトします。: ${JSON.stringify(errors)}`);
+      signOut();
     }
   };
 

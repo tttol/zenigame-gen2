@@ -37,10 +37,6 @@ export const auth = defineAuth({
   //   },
   // },
   userAttributes: {
-    /** request additional attributes for your app's users */
-    // profilePicture: {
-    //   mutable: true,
-    //   required: false,
-    // },
+    
   },
 });

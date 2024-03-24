@@ -1,5 +1,6 @@
 import { Schema } from "@/amplify/data/resource";
 import { generateClient } from "aws-amplify/api";
+import { signOut } from "aws-amplify/auth";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { refreshAuthToken } from "../logic/Authentication";
@@ -41,7 +42,11 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
       paidAt: detail.paidAt,
     };
     const { data: updatedDetail, errors } = await client.models.Detail.update(target);
-    console.log(`errors=${JSON.stringify(errors)}`);
+    if (errors) {
+      alert(`認証エラーが発生しました。ログアウトします。: ${JSON.stringify(errors)}`);
+      signOut();
+    }
+    
     console.log(`updatedDetail=${JSON.stringify(updatedDetail)}`);
   };
 

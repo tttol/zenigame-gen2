@@ -4,16 +4,16 @@ import { Schema } from '@/amplify/data/resource';
 import { WithAuthenticatorProps, withAuthenticator } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import { generateClient } from 'aws-amplify/api';
+import { signOut } from 'aws-amplify/auth';
 import { useEffect, useState } from 'react';
 import CreateItem from './component/CreateItem';
 import Detail from './component/Detail';
 import Sum from './component/Sum';
 import Version from './component/Version';
-import { refreshAuthToken } from './logic/Authentication';
 
 const client = generateClient<Schema>();
 
-const Home: React.FC = ({ signOut, user }: WithAuthenticatorProps)  => {
+const Home: React.FC = ({ user }: WithAuthenticatorProps)  => {
   const [details, setDetails] = useState<Schema["Detail"][]>([]);
   const [displayDetails, setDisplayDetails] = useState<Schema["Detail"][]>([]);
   
@@ -22,10 +22,10 @@ const Home: React.FC = ({ signOut, user }: WithAuthenticatorProps)  => {
   }, []);
 
   const fetchDetails = async () => {
-    refreshAuthToken();
     const { errors,  data } = await client.models.Detail.list();
     if (errors) {
-      console.error(`errors: ${JSON.stringify(errors)}`);
+      alert(`認証エラーが発生しました。ログアウトします。: ${JSON.stringify(errors)}`);
+      signOut();
     }
     console.log(`fetched Detail data: ${JSON.stringify(data)}`);
 
@@ -42,12 +42,16 @@ const Home: React.FC = ({ signOut, user }: WithAuthenticatorProps)  => {
     }
   };
 
+  const logout = () => signOut()
+
   return (
     <>
       <header className="bg-blue-900 text-white p-4 text-center font-black text-4xl">ZENIGAME</header>
       <main>
         <div className='w-[90%] mx-auto'>
-          <button onClick={signOut} className="bg-blue-500 text-white p-2 rounded-lg mt-3 ml-auto">Sign Out</button>
+          <div className='text-right'>
+            <button onClick={logout} className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg mt-3">Sign Out</button>
+          </div>
           <Version />
           <div className='text-right'>Username: {user?.username}</div>
           <Sum details={displayDetails} />
