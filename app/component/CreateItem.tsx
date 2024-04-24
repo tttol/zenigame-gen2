@@ -113,9 +113,10 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
     return result;
   }
 
-  const labels = items
-    .map((item) => item.label)
-    .filter((label) => label !== null);
+  const debts = items
+  .filter((item) => !item.paidByUserA || !item.paidByUserB)
+  const labels = Array.from(new Set(debts.map((item) => item.label)))
+  .filter((label) => label !== null);
 
   return (
     <>
