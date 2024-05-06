@@ -44,3 +44,4 @@ amplifyconfiguration*
 
 cognito.txt
 dynamodb.txt
+copy/*
