@@ -4,5 +4,5 @@ import Home from '../app/page'
 
 test('Home', () => {
     render(<Home />)
-    expect(screen.getByText('ZENIGAME')).toBeDefined();
+    expect(screen.findByText('ZENIGAME')).toBeDefined();
 })
