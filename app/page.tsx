@@ -27,7 +27,6 @@ const Home: React.FC = ({ user }: WithAuthenticatorProps)  => {
       alert(`認証エラーが発生しました。ログアウトします。: ${JSON.stringify(errors)}`);
       signOut();
     }
-    console.log(`fetched Detail data: ${JSON.stringify(data)}`);
 
     setDetails(Array.isArray(data) ? data : []);
     setDisplayDetails(Array.isArray(data) ? data : []);
