@@ -1,6 +1,5 @@
 import { Schema } from "@/amplify/data/resource";
 import dotenv from "dotenv";
-import React from 'react';
 
 dotenv.config();
 
