@@ -18,7 +18,7 @@ const schema = a.schema({
       paidByUserB: a.boolean(),
       paidAt: a.string(),
     })
-    .authorization([a.allow.specificGroup("family")]),
+    .authorization(allow => [allow.group('family')]),
 });
 
 export type Schema = ClientSchema<typeof schema>;

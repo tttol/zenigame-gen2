@@ -113,7 +113,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
     return result;
   }
 
-  const labels = Array.from(new Set(items.map((item) => item.label)))
+  const labels = Array.from(new Set(items.map((item: Schema["Detail"]) => item.label)))
   .filter((label) => label !== null);
 
   return (
