@@ -7,19 +7,19 @@ import { refreshAuthToken } from "../logic/Authentication";
 import userAImage from "./../userA.png";
 import userBImage from "./../userB.webp";
 
-const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
-  details: details,
+const Detail: React.FC<{ labeledDetails: Schema["Detail"][] }> = ({
+  labeledDetails: labeledDetails,
 }) => {
   const client = generateClient<Schema>();
   const [displayDetails, setDisplayDetails] = useState<Schema["Detail"][]>([]);
   useEffect(() => {
-    setDisplayDetails(details);
-  }, [details]);
+    setDisplayDetails(labeledDetails);
+  }, [labeledDetails]);
 
   const updateAllDetailsPaid = async () => {
-    if (!window.confirm("すべての明細を支払い済みにします。よろしいですか？"))
+    if (!window.confirm("画面に表示されている明細を支払い済みにします。\n※現在表示されていない明細は精算されません。\n\nよろしいですか？"))
       return;
-    const targetDetails = details.filter(
+    const targetDetails = labeledDetails.filter(
       (item) => !item.paidByUserA || !item.paidByUserB
     );
     console.log(`update targetDetails=${JSON.stringify(targetDetails)}`);
@@ -28,7 +28,7 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
     for (const target of targetDetails) {
       update(target);
     }
-    alert(`すべての明細を支払い済みに更新しました.`);
+    alert(`画面に表示されている明細を支払い済みに更新しました.`);
   };
 
   const update = async (detail: Schema["Detail"]) => {
@@ -65,7 +65,7 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
   return (
     <div className="p-3 bg-slate-500 text-white rounded-xl">
       <div className="text-right">
-        {details.filter((item) => !item.paidByUserA || !item.paidByUserB).length}{" "}
+        {labeledDetails.filter((item) => !item.paidByUserA || !item.paidByUserB).length}{" "}
         件
       </div>
       <div className="text-right  mb-3 mt-3">
@@ -73,7 +73,7 @@ const Detail: React.FC<{ details: Schema["Detail"][] }> = ({
           onClick={updateAllDetailsPaid}
           className="bg-purple-400 text-white font-bold py-2 px-2 rounded-full inline-flex"
         >
-          すべて支払い済みにする
+          支払い済みにする
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"

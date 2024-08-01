@@ -24,7 +24,7 @@ test('Sum', () => {
         },
         // 他のテスト用データ...
     ];
-    render(<Sum details={details as any} />)
+    render(<Sum labeledDetails={details as any} />)
 
     const price = "￥500";
     expect(screen.getByText(price)).toBeDefined();
