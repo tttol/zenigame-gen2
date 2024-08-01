@@ -20,7 +20,7 @@ const Detail: React.FC<{ labeledDetails: Schema["Detail"][] }> = ({
     if (!window.confirm("画面に表示されている明細を支払い済みにします。\n※現在表示されていない明細は精算されません。\n\nよろしいですか？"))
       return;
     const targetDetails = labeledDetails.filter(
-      (item) => !item.paidByUserA || !item.paidByUserB
+      (d: Schema["Detail"]) => !d.paidByUserA || !d.paidByUserB
     );
     console.log(`update targetDetails=${JSON.stringify(targetDetails)}`);
 
