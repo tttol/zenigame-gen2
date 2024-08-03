@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import userAImage from "./../userA.png";
 import userBImage from "./../userB.webp";
 
-const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items }) => {
+const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details: items }) => {
   dotenv.config();
   const USER_A = process.env.NEXT_PUBLIC_USER_A ?? "user A";
   const USER_B = process.env.NEXT_PUBLIC_USER_B ?? "user B";
