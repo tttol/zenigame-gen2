@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import userAImage from "./../userA.png";
 import userBImage from "./../userB.webp";
 
-const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items }) => {
+const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details: items }) => {
   dotenv.config();
   const USER_A = process.env.NEXT_PUBLIC_USER_A ?? "user A";
   const USER_B = process.env.NEXT_PUBLIC_USER_B ?? "user B";
@@ -113,7 +113,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"][] }> = ({ details: items 
     return result;
   }
 
-  const labels = Array.from(new Set(items.map((item: Schema["Detail"]) => item.label)))
+  const labels = Array.from(new Set(items.map((item) => item.label)))
   .filter((label) => label !== null);
 
   return (

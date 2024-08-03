@@ -3,21 +3,21 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const Sum: React.FC<{ labeledDetails: Schema["Detail"][] }> = ({
+const Sum: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
   labeledDetails: labeledDetails,
 }) => {
   dotenv.config();
   const USER_A = process.env.NEXT_PUBLIC_USER_A ?? "User A";
   const USER_B = process.env.NEXT_PUBLIC_USER_B ?? "User B";
 
-  const getDebtUserA = (details: Schema["Detail"][]) =>
+  const getDebtUserA = (details: Schema["Detail"]["type"][]) =>
     details
-      .filter((detail: Schema["Detail"]) => !detail.paidByUserA)
+      .filter((detail) => !detail.paidByUserA)
       .reduce((sum, detail) => sum + (detail.price ?? 0), 0);
-  const getDebtUserB = (details: any) =>
+  const getDebtUserB = (details: Schema["Detail"]["type"][]) =>
     details
-      .filter((detail: any) => !detail.paidByUserB)
-      .reduce((sum: number, detail: any) => sum + (detail.price ?? 0), 0);
+      .filter((detail) => !detail.paidByUserB)
+      .reduce((sum, detail) => sum + (detail.price ?? 0), 0);
 
   const debtUserA = getDebtUserA(labeledDetails);
   const debtUserB = getDebtUserB(labeledDetails);

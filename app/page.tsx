@@ -17,8 +17,10 @@ import Version from "./component/Version";
 const client = generateClient<Schema>();
 
 const Home: React.FC = ({ user }: WithAuthenticatorProps) => {
-  const [details, setDetails] = useState<Schema["Detail"][]>([]);
-  const [labeledDetails, setLabledDetails] = useState<Schema["Detail"][]>([]);
+  const [details, setDetails] = useState<Schema["Detail"]["type"][]>([]);
+  const [labeledDetails, setLabledDetails] = useState<
+    Schema["Detail"]["type"][]
+  >([]);
   const [filteredLabel, setFilteredLabel] = useState("");
 
   useEffect(() => {
@@ -26,7 +28,7 @@ const Home: React.FC = ({ user }: WithAuthenticatorProps) => {
   }, []);
 
   const fetchDetails = async () => {
-    const { errors, data } = await client.models.Detail.list();
+    const { errors, data: items } = await client.models.Detail.list();
     if (errors) {
       alert(
         `認証エラーが発生しました。ログアウトします。: ${JSON.stringify(
@@ -36,8 +38,9 @@ const Home: React.FC = ({ user }: WithAuthenticatorProps) => {
       signOut();
     }
 
-    setDetails(Array.isArray(data) ? data : []);
-    setLabledDetails(Array.isArray(data) ? data : []);
+    if (items == undefined) return;
+    setDetails(items);
+    setLabledDetails(items);
   };
 
   const handleLabelChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

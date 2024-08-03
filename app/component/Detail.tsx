@@ -7,11 +7,11 @@ import { refreshAuthToken } from "../logic/Authentication";
 import userAImage from "./../userA.png";
 import userBImage from "./../userB.webp";
 
-const Detail: React.FC<{ labeledDetails: Schema["Detail"][] }> = ({
+const Detail: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
   labeledDetails: labeledDetails,
 }) => {
   const client = generateClient<Schema>();
-  const [displayDetails, setDisplayDetails] = useState<Schema["Detail"][]>([]);
+  const [displayDetails, setDisplayDetails] = useState<Schema["Detail"]["type"][]>([]);
   useEffect(() => {
     setDisplayDetails(labeledDetails);
   }, [labeledDetails]);
@@ -20,7 +20,7 @@ const Detail: React.FC<{ labeledDetails: Schema["Detail"][] }> = ({
     if (!window.confirm("画面に表示されている明細を支払い済みにします。\n※現在表示されていない明細は精算されません。\n\nよろしいですか？"))
       return;
     const targetDetails = labeledDetails.filter(
-      (d: Schema["Detail"]) => !d.paidByUserA || !d.paidByUserB
+      d => !d.paidByUserA || !d.paidByUserB
     );
     console.log(`update targetDetails=${JSON.stringify(targetDetails)}`);
 
@@ -31,7 +31,7 @@ const Detail: React.FC<{ labeledDetails: Schema["Detail"][] }> = ({
     alert(`画面に表示されている明細を支払い済みに更新しました.`);
   };
 
-  const update = async (detail: Schema["Detail"]) => {
+  const update = async (detail: Schema["Detail"]["type"]) => {
     const target = {
       id: detail.id ?? "",
       name: detail.name,
