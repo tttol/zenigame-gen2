@@ -6,13 +6,17 @@ import {
   withAuthenticator,
 } from "@aws-amplify/ui-react";
 import "@aws-amplify/ui-react/styles.css";
+import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/api";
 import { signOut } from "aws-amplify/auth";
 import { useEffect, useState } from "react";
+import config from "../amplify_outputs.json";
 import CreateItem from "./component/CreateItem";
 import Detail from "./component/Detail";
 import Sum from "./component/Sum";
 import Version from "./component/Version";
+
+Amplify.configure(config);
 
 const client = generateClient<Schema>();
 
