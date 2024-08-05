@@ -25,7 +25,7 @@ const Home: React.FC = ({ user }: WithAuthenticatorProps) => {
   const [labeledDetails, setLabledDetails] = useState<
     Schema["Detail"]["type"][]
   >([]);
-  const [filteredLabel, setFilteredLabel] = useState("");
+  const [filteredLabel, setFilteredLabel] = useState("all");
 
   useEffect(() => {
     fetchDetails();
@@ -50,22 +50,25 @@ const Home: React.FC = ({ user }: WithAuthenticatorProps) => {
   const handleLabelChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     switch (e.target.value) {
       case undefined:
-        return;
+        break;
       case "all":
         setLabledDetails(details);
         setFilteredLabel(e.target.value);
+        break;
+      case "ラベルなし":
+        const noLabelDetails = details.filter((detail) => detail.label === "");
+        setLabledDetails(noLabelDetails);
+        setFilteredLabel(e.target.value);
+        break;
       default:
         const filterdDetails = details.filter(
           (detail) => detail.label === e.target.value
         );
         setLabledDetails(filterdDetails);
         setFilteredLabel(e.target.value);
+        break;
     }
   };
-
-  const logout = () => signOut();
-
-  const labels = Array.from(new Set(details.map((d) => d.label)));
 
   return (
     <>
@@ -76,7 +79,7 @@ const Home: React.FC = ({ user }: WithAuthenticatorProps) => {
         <div className="w-[90%] mx-auto">
           <div className="text-right">
             <button
-              onClick={logout}
+              onClick={() => signOut()}
               className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg mt-3"
             >
               Sign Out
@@ -95,8 +98,14 @@ const Home: React.FC = ({ user }: WithAuthenticatorProps) => {
               onChange={handleLabelChange}
               className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-auto text-slate-800 bg-white"
             >
-              <option value="all">全ての明細を表示</option>
-              {labels.map((l) => (
+              <option key="all" value="all">
+                全ての明細を表示
+              </option>
+              {Array.from(
+                new Set(
+                  details.map((d) => (d.label === "" ? "ラベルなし" : d.label))
+                )
+              ).map((l) => (
                 <option key={l} value={l ?? ""}>
                   {l}
                 </option>
