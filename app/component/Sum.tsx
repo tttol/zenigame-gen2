@@ -29,7 +29,7 @@ const Sum: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
 
   return (
     <div className="min-h-max p-3 bg-blue-600 text-slate-100 rounded-xl my-3">
-      <p className="text-3xl mb-3">SUMMARY</p>
+      <p className="text-3xl mb-3 font-bold">SUMMARY</p>
       <div className="min-h-max m-1 p-3 bg-blue-400 text-slate-100 rounded-xl">
         <div>
           <p>{USER_A} - 未払い差引合計</p>
@@ -44,7 +44,7 @@ const Sum: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
       <div className="min-h-max m-1 mt-3  p-3 bg-pink-400 text-slate-100 rounded-xl">
         <div>
           <p>{USER_B} - 未払い差引合計</p>
-          <p className="font-blod text-3xl">
+          <p className="font-bold text-3xl">
             {priceFormatter.format(Math.max((debtUserB - debtUserA) / 2, 0))}
           </p>
           <p className="text-slate-300 mt-2">
