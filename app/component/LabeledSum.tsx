@@ -34,18 +34,20 @@ const LabeledSum: React.FC<{ allDetails: Schema["Detail"]["type"][], label: stri
   });
 
   return (
-    <div className="min-h-max p-3 bg-blue-600 text-slate-100 rounded-xl my-3">
-      <p className="text-3xl mb-3">「{label}」の支出合計</p>
-      <div className="min-h-max m-1 p-3 bg-blue-400 text-slate-100 rounded-xl">
-        <div>
-          <p>{USER_A} - 支出合計</p>
-          <p className="font-bold text-3xl">{priceFormatter.format(sumA)}</p>
+    <div className="min-h-max p-3 bg-purple-400 text-slate-100 rounded-xl my-3">
+      <p className="text-3xl mb-3 font-bold">「{label}」の支出合計</p>
+      <div className="flex">
+        <div className="min-h-max m-1 p-3 bg-blue-500 text-slate-100 rounded-xl w-1/2">
+          <div>
+            <p>{USER_A} - 支出合計</p>
+            <p className="font-bold text-3xl">{priceFormatter.format(sumA)}</p>
+          </div>
         </div>
-      </div>
-      <div className="min-h-max m-1 mt-3  p-3 bg-pink-400 text-slate-100 rounded-xl">
-        <div>
-          <p>{USER_B} - 支出合計</p>
-          <p className="font-bold text-3xl">{priceFormatter.format(sumB)}</p>
+        <div className="min-h-max m-1 p-3 bg-pink-500 text-slate-100 rounded-xl w-1/2">
+          <div>
+            <p>{USER_B} - 支出合計</p>
+            <p className="font-bold text-3xl">{priceFormatter.format(sumB)}</p>
+          </div>
         </div>
       </div>
     </div>

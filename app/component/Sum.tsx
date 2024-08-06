@@ -29,7 +29,7 @@ const Sum: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
 
   return (
     <div className="min-h-max p-3 bg-blue-600 text-slate-100 rounded-xl my-3">
-      <p className="text-3xl mb-3">SUMMARY</p>
+      <p className="text-3xl mb-3 font-bold">SUMMARY</p>
       <div className="min-h-max m-1 p-3 bg-blue-400 text-slate-100 rounded-xl">
         <div>
           <p>{USER_A} - 未払い差引合計</p>

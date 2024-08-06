@@ -91,7 +91,7 @@ const Home: React.FC = ({ user }: WithAuthenticatorProps) => {
             Login ID: {user?.signInDetails?.loginId}
           </div>
           <Sum labeledDetails={labeledDetails} />
-          <div className="mb-[4rem]"></div>
+          <div className="mb-[3.5rem]"></div>
           <LabeledSum allDetails={details} label="買い出し" />
           <CreateItem details={details} />
           <div className="text-right  mb-3 mt-3 text-lg">
