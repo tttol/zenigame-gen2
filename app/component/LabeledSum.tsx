@@ -41,13 +41,13 @@ const LabeledSum: React.FC<{
         <div className="min-h-max m-1 p-3 bg-blue-500 text-slate-100 rounded-xl w-1/2">
           <div>
             <p>{USER_A} - 支出合計</p>
-            <p className="font-bold text-3xl">{priceFormatter.format(sumA)}</p>
+            <p className="text-3xl">{priceFormatter.format(sumA)}</p>
           </div>
         </div>
         <div className="min-h-max m-1 p-3 bg-pink-500 text-slate-100 rounded-xl w-1/2">
           <div>
             <p>{USER_B} - 支出合計</p>
-            <p className="font-bold text-3xl">{priceFormatter.format(sumB)}</p>
+            <p className="text-3xl">{priceFormatter.format(sumB)}</p>
           </div>
         </div>
       </div>
