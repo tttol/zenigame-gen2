@@ -3,9 +3,10 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const LabeledSum: React.FC<{ allDetails: Schema["Detail"]["type"][], label: string }> = ({
-  allDetails: allDetails, label: label
-}) => {
+const LabeledSum: React.FC<{
+  allDetails: Schema["Detail"]["type"][];
+  label: string;
+}> = ({ allDetails: allDetails, label: label }) => {
   dotenv.config();
   const USER_A = process.env.NEXT_PUBLIC_USER_A ?? "User A";
   const USER_B = process.env.NEXT_PUBLIC_USER_B ?? "User B";
@@ -21,7 +22,7 @@ const LabeledSum: React.FC<{ allDetails: Schema["Detail"]["type"][], label: stri
 
     // A：未払い　B：支払済
     const sumB = details
-      .filter((d) => !d.paidByUserA && d.paidByUserB)
+      .filter((d) => !d.paidByUserA && d.paidByUserB && d.label === label)
       .reduce((sum, d) => sum + (d.price ?? 0), 0);
     return [sumA, sumB];
   };

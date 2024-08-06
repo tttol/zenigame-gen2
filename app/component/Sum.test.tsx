@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
 import Sum from './Sum';
+import { Schema } from '@/amplify/data/resource';
 
 test('Sum', () => {
     const details = [
@@ -24,7 +25,7 @@ test('Sum', () => {
         },
         // 他のテスト用データ...
     ];
-    render(<Sum labeledDetails={details as any} />)
+    render(<Sum labeledDetails={details as Schema["Detail"]["type"][]} />)
 
     const price = "￥500";
     expect(screen.getByText(price)).toBeDefined();
