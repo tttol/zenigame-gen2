@@ -13,8 +13,8 @@ import { useEffect, useState } from "react";
 import config from "../amplify_outputs.json";
 import CreateItem from "./component/CreateItem";
 import Detail from "./component/Detail";
-import Sum from "./component/Sum";
 import LabeledSum from "./component/LabeledSum";
+import Sum from "./component/Sum";
 import Version from "./component/Version";
 
 Amplify.configure(config);
@@ -29,23 +29,21 @@ const Home: React.FC = ({ user }: WithAuthenticatorProps) => {
   const [filteredLabel, setFilteredLabel] = useState("all");
 
   useEffect(() => {
-    fetchDetails();
+    subscribeDetails();
   }, []);
 
-  const fetchDetails = async () => {
-    const { errors, data: items } = await client.models.Detail.list();
-    if (errors) {
-      alert(
-        `認証エラーが発生しました。ログアウトします。: ${JSON.stringify(
-          errors
-        )}`
-      );
-      signOut();
-    }
-
-    if (items == undefined) return;
-    setDetails(items);
-    setLabledDetails(items);
+  const subscribeDetails = async () => {
+    const sub = client.models.Detail.observeQuery().subscribe({
+      next: ({items}) => {
+        if (items == undefined) {
+          alert("明細取得に失敗しました")
+          return;
+        }
+        setDetails(items);
+        setLabledDetails(items);
+      }
+    });
+    return () => sub.unsubscribe();
   };
 
   const handleLabelChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

@@ -58,6 +58,14 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details
     setIsOpen(false);
   };
 
+  const initForm = () => {
+    setItemName("");
+    setPrice("");
+    setLabel("ラベルを選択してください")
+    setPaidAt(generateCurrentDate());
+    setPaidBy("");
+  }
+
   const handleCreateItem = () => {
     if (!window.confirm("明細を追加しますか？")) return;
 
@@ -77,10 +85,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details
         ${USER_B}支払い: ${paidBy === "userB" ? "済" : "未"}
       `);
 
-      setItemName("");
-      setPrice("");
-      setPaidAt("");
-      setPaidBy("");
+      initForm();
       handleCloseModal();
     } catch (err) {
       alert(`明細追加に失敗しました. ${err}`);
