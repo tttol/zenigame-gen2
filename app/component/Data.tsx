@@ -1,10 +1,10 @@
 "use client";
 import { Schema } from "@/amplify/data/resource";
+import config from "@/amplify_outputs.json";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/api";
 import { useEffect, useState } from "react";
-import config from "../../amplify_outputs.json";
 import CreateItem from "./CreateItem";
 import Detail from "./Detail";
 import LabeledSum from "./LabeledSum";

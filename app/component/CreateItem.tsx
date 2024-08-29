@@ -1,11 +1,11 @@
 "use client";
 import { Schema } from "@/amplify/data/resource";
-import { generateClient } from "aws-amplify/api";
 import dotenv from "dotenv";
 import Image from "next/image";
 import React, { useState } from "react";
 import userAImage from "./../userA.png";
 import userBImage from "./../userB.webp";
+import Loading from "./Loading";
 
 const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
   details: items,
@@ -13,8 +13,6 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
   dotenv.config();
   const USER_A = process.env.NEXT_PUBLIC_USER_A ?? "user A";
   const USER_B = process.env.NEXT_PUBLIC_USER_B ?? "user B";
-
-  const client = generateClient<Schema>();
 
   const generateCurrentDate = () => {
     const date = new Date();
@@ -25,6 +23,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
   };
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [itemName, setItemName] = useState("");
   const [price, setPrice] = useState("");
   const [label, setLabel] = useState("");
@@ -52,11 +51,11 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
     setPaidBy(e.target.value);
   };
 
-  const handleOpenModal = () => {
+  const openModal = () => {
     setIsOpen(true);
   };
 
-  const handleCloseModal = () => {
+  const closeModal = () => {
     setIsOpen(false);
   };
 
@@ -72,6 +71,8 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
     if (!window.confirm("明細を追加しますか？")) return;
 
     try {
+      closeModal();
+      setIsLoading(true);
       const response = await fetch("/api/data/insert", {
         method: "POST",
         headers: {
@@ -100,13 +101,14 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
           `);
 
         initForm();
-        handleCloseModal();
       } else {
         const errorData = await response.json();
         alert(`明細追加に失敗しました. ${errorData.error}`);
       }
     } catch (err) {
       alert(`明細追加に失敗しました. ${JSON.stringify(err)}`);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -117,7 +119,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
   return (
     <>
       <div
-        onClick={handleOpenModal}
+        onClick={openModal}
         className="bg-green-400 text-white font-bold py-2 px-2 rounded-full w-10 ml-auto mb-3"
       >
         <svg
@@ -134,6 +136,11 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
         </svg>
       </div>
 
+      {isLoading && (
+        <div className="fixed inset-0 flex items-center justify-center">
+          <Loading />
+        </div>
+      )}
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-slate-400 p-4 rounded-lg text-white w-3/4">
@@ -225,7 +232,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
 
             <div className="flex justify-end">
               <button
-                onClick={handleCloseModal}
+                onClick={closeModal}
                 className="bg-gray-300 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded-lg mr-2"
               >
                 Cancel
