@@ -1,13 +1,15 @@
+"use client";
 import { Schema } from "@/amplify/data/resource";
 import { generateClient } from "aws-amplify/api";
-import { signOut } from "aws-amplify/auth";
 import dotenv from "dotenv";
 import Image from "next/image";
 import React, { useState } from "react";
 import userAImage from "./../userA.png";
 import userBImage from "./../userB.webp";
 
-const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details: items }) => {
+const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
+  details: items,
+}) => {
   dotenv.config();
   const USER_A = process.env.NEXT_PUBLIC_USER_A ?? "user A";
   const USER_B = process.env.NEXT_PUBLIC_USER_B ?? "user B";
@@ -61,65 +63,56 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details
   const initForm = () => {
     setItemName("");
     setPrice("");
-    setLabel("ラベルを選択してください")
+    setLabel("ラベルを選択してください");
     setPaidAt(generateCurrentDate());
     setPaidBy("");
-  }
+  };
 
-  const handleCreateItem = () => {
+  const createItem = async () => {
     if (!window.confirm("明細を追加しますか？")) return;
 
     try {
-      if (!label || label === "newLabel") {
-        alert("ラベルを選択してください");
-        return;
+      const response = await fetch("/api/data/insert", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          itemName,
+          price,
+          label,
+          paidAt,
+          paidBy,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        alert(`
+          明細を追加しました.
+            ID: ${data.id}
+            品目: ${itemName}
+            金額: ${price}
+            ラベル: ${label}
+            支払日: ${paidAt}
+            ${USER_A}支払い: ${paidBy === "userA" ? "済" : "未"}
+            ${USER_B}支払い: ${paidBy === "userB" ? "済" : "未"}
+          `);
+
+        initForm();
+        handleCloseModal();
+      } else {
+        const errorData = await response.json();
+        alert(`明細追加に失敗しました. ${errorData.error}`);
       }
-      insertItem();
-      alert(`
-      明細を追加しました.
-        品目: ${itemName}
-        金額: ${price}
-        ラベル: ${label}
-        支払日: ${paidAt}
-        ${USER_A}支払い: ${paidBy === "userA" ? "済" : "未"}
-        ${USER_B}支払い: ${paidBy === "userB" ? "済" : "未"}
-      `);
-
-      initForm();
-      handleCloseModal();
     } catch (err) {
-      alert(`明細追加に失敗しました. ${err}`);
+      alert(`明細追加に失敗しました. ${JSON.stringify(err)}`);
     }
   };
 
-  const insertItem = async () => {
-    const { errors, data: newDetail } = await client.models.Detail.create({
-      id: generateRandomString(),
-      name: itemName,
-      price: Number(price),
-      label: label,
-      paidAt: paidAt,
-      paidByUserA: paidBy === "userA",
-      paidByUserB: paidBy === "userB",
-    })
-    if (errors) {
-      alert(`認証エラーが発生しました。ログアウトします。: ${JSON.stringify(errors)}`);
-      signOut();
-    }
-  };
-
-  function generateRandomString() {
-    const chars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let result = "";
-    for (var i = 0; i < 8; i++) {
-      result += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return result;
-  }
-
-  const labels = Array.from(new Set(items.map((item) => item.label)))
-  .filter((label) => label !== null);
+  const labels = Array.from(new Set(items.map((item) => item.label))).filter(
+    (label) => label !== null
+  );
 
   return (
     <>
@@ -238,7 +231,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details
                 Cancel
               </button>
               <button
-                onClick={handleCreateItem}
+                onClick={createItem}
                 className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg"
               >
                 Create

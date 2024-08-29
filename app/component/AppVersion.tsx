@@ -1,6 +1,6 @@
 import React from "react";
 
-const Version: React.FC = () => {
+const AppVersion: React.FC = () => {
   const getAppVersion = () => {
     const packageJson = require("../../package.json");
     return packageJson.version;
@@ -12,4 +12,4 @@ const Version: React.FC = () => {
   );
 };
 
-export default Version;
+export default AppVersion;
