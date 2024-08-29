@@ -73,7 +73,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
     try {
       closeModal();
       setIsLoading(true);
-      const response = await fetch("/api/data/insert", {
+      const response = await fetch("/api/data", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
