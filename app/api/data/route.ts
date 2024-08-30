@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 import { NextResponse } from 'next/server';
 
 // 参考: https://docs.amplify.aws/nextjs/build-a-backend/data/connect-from-server-runtime/nextjs-server-runtime/
-export const cookieBasedClient = generateServerClientUsingCookies<Schema>({
+const cookieBasedClient = generateServerClientUsingCookies<Schema>({
     config: outputs,
     cookies,
   });
