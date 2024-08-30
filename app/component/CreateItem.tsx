@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { useState } from "react";
 import userAImage from "./../userA.png";
 import userBImage from "./../userB.webp";
+import { createAction } from "./CreateAction";
 import Loading from "./Loading";
 
 const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
@@ -105,6 +106,32 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
         const errorData = await response.json();
         alert(`明細追加に失敗しました. ${errorData.error}`);
       }
+    } catch (err) {
+      alert(`明細追加に失敗しました. ${JSON.stringify(err)}`);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const createItem2 = async () => {
+    if (!window.confirm("明細を追加しますか？")) return;
+
+    try {
+      closeModal();
+      setIsLoading(true);
+
+      await createAction(itemName, price, label, paidAt, paidBy)
+      alert(`
+        明細を追加しました.
+          品目: ${itemName}
+          金額: ${price}
+          ラベル: ${label}
+          支払日: ${paidAt}
+          ${USER_A}支払い: ${paidBy === "userA" ? "済" : "未"}
+          ${USER_B}支払い: ${paidBy === "userB" ? "済" : "未"}
+        `);
+
+      initForm();
     } catch (err) {
       alert(`明細追加に失敗しました. ${JSON.stringify(err)}`);
     } finally {
@@ -238,7 +265,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
                 Cancel
               </button>
               <button
-                onClick={createItem}
+                onClick={createItem2}
                 className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg"
               >
                 Create
