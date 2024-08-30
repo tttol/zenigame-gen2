@@ -1,14 +1,6 @@
-import { Schema } from "@/amplify/data/resource";
-import outputs from "@/amplify_outputs.json";
-import { generateServerClientUsingCookies } from "@aws-amplify/adapter-nextjs/data";
-import { cookies } from "next/headers";
+import { cookieBasedClient } from "@/app/component/CookieBasedClient";
 import { NextResponse } from 'next/server';
 
-// 参考: https://docs.amplify.aws/nextjs/build-a-backend/data/connect-from-server-runtime/nextjs-server-runtime/
-const cookieBasedClient = generateServerClientUsingCookies<Schema>({
-    config: outputs,
-    cookies,
-  });
   
 export async function POST(req: Request) {
   try {
