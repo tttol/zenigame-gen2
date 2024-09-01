@@ -7,4 +7,5 @@ import { cookies } from 'next/headers';
 export const cookieBasedClient = generateServerClientUsingCookies<Schema>({
   config: outputs,
   cookies,
+  authMode: "userPool"
 });
