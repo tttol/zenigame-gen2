@@ -1,3 +1,4 @@
+"use client";
 import { Schema } from "@/amplify/data/resource";
 import { generateClient } from "aws-amplify/api";
 import { signOut } from "aws-amplify/auth";
@@ -6,13 +7,16 @@ import Image from "next/image";
 import React, { useState } from "react";
 import userAImage from "./../userA.png";
 import userBImage from "./../userB.webp";
+import Loading from "./Loading";
 
-const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details: items }) => {
+const client = generateClient<Schema>();
+
+const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
+  details: items,
+}) => {
   dotenv.config();
   const USER_A = process.env.NEXT_PUBLIC_USER_A ?? "user A";
   const USER_B = process.env.NEXT_PUBLIC_USER_B ?? "user B";
-
-  const client = generateClient<Schema>();
 
   const generateCurrentDate = () => {
     const date = new Date();
@@ -23,6 +27,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details
   };
 
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [itemName, setItemName] = useState("");
   const [price, setPrice] = useState("");
   const [label, setLabel] = useState("");
@@ -50,51 +55,51 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details
     setPaidBy(e.target.value);
   };
 
-  const handleOpenModal = () => {
+  const openModal = () => {
     setIsOpen(true);
   };
 
-  const handleCloseModal = () => {
+  const closeModal = () => {
     setIsOpen(false);
   };
 
   const initForm = () => {
     setItemName("");
     setPrice("");
-    setLabel("ラベルを選択してください")
+    setLabel("ラベルを選択してください");
     setPaidAt(generateCurrentDate());
     setPaidBy("");
-  }
+  };
 
-  const handleCreateItem = () => {
+  const createItem = async () => {
     if (!window.confirm("明細を追加しますか？")) return;
 
     try {
-      if (!label || label === "newLabel") {
-        alert("ラベルを選択してください");
-        return;
-      }
-      insertItem();
+      closeModal();
+      setIsLoading(true);
+      const id: string = await insertItem();
       alert(`
-      明細を追加しました.
-        品目: ${itemName}
-        金額: ${price}
-        ラベル: ${label}
-        支払日: ${paidAt}
-        ${USER_A}支払い: ${paidBy === "userA" ? "済" : "未"}
-        ${USER_B}支払い: ${paidBy === "userB" ? "済" : "未"}
-      `);
-
+        明細を追加しました.
+          ID: ${id}
+          品目: ${itemName}
+          金額: ${price}
+          ラベル: ${label}
+          支払日: ${paidAt}
+          ${USER_A}支払い: ${paidBy === "userA" ? "済" : "未"}
+          ${USER_B}支払い: ${paidBy === "userB" ? "済" : "未"}
+        `);
       initForm();
-      handleCloseModal();
     } catch (err) {
-      alert(`明細追加に失敗しました. ${err}`);
+      alert(`明細追加に失敗しました. ${JSON.stringify(err)}`);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const insertItem = async () => {
+  const insertItem = async (): Promise<string> => {
+    const id = generateRandomString();
     const { errors, data: newDetail } = await client.models.Detail.create({
-      id: generateRandomString(),
+      id: id,
       name: itemName,
       price: Number(price),
       label: label,
@@ -105,10 +110,13 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details
     if (errors) {
       alert(`認証エラーが発生しました。ログアウトします。: ${JSON.stringify(errors)}`);
       signOut();
+      return "";
     }
+
+    return id;
   };
 
-  function generateRandomString() {
+  const generateRandomString = () => {
     const chars =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let result = "";
@@ -118,13 +126,14 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details
     return result;
   }
 
-  const labels = Array.from(new Set(items.map((item) => item.label)))
-  .filter((label) => label !== null);
+  const labels = Array.from(new Set(items.map((item) => item.label))).filter(
+    (label) => label !== null
+  );
 
   return (
     <>
       <div
-        onClick={handleOpenModal}
+        onClick={openModal}
         className="bg-green-400 text-white font-bold py-2 px-2 rounded-full w-10 ml-auto mb-3"
       >
         <svg
@@ -141,6 +150,11 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details
         </svg>
       </div>
 
+      {isLoading && (
+        <div className="fixed inset-0 flex items-center justify-center">
+          <Loading />
+        </div>
+      )}
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-slate-400 p-4 rounded-lg text-white w-3/4">
@@ -232,13 +246,13 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({ details
 
             <div className="flex justify-end">
               <button
-                onClick={handleCloseModal}
+                onClick={closeModal}
                 className="bg-gray-300 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded-lg mr-2"
               >
                 Cancel
               </button>
               <button
-                onClick={handleCreateItem}
+                onClick={createItem}
                 className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg"
               >
                 Create

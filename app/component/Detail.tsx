@@ -91,10 +91,15 @@ const Detail: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
 
       {displayDetails
         .filter((detail) => !detail.paidByUserA || !detail.paidByUserB)
-        .sort((a, b) => {
+        .sort((a, b) => {// 支払日降順
           const aPaidAt = a.paidAt ? new Date(a.paidAt).getTime() : 0;
           const bPaidAt = b.paidAt ? new Date(b.paidAt).getTime() : 0;
           return bPaidAt - aPaidAt;
+        })
+        .sort((a, b) => {// 作成日降順
+          const aCreatedAt = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+          const bCreatedAt = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+          return bCreatedAt - aCreatedAt;
         })
         .map((detail) => (
           <div key={detail.id} className="border-b-2 border-slate-400 mb-5">
