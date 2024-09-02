@@ -2,6 +2,7 @@
 import { Schema } from "@/amplify/data/resource";
 import config from "@/amplify_outputs.json";
 import { Authenticator } from "@aws-amplify/ui-react";
+import { Passwordless } from "amazon-cognito-passwordless-auth";
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/api";
 import { useEffect, useState } from "react";
@@ -13,6 +14,11 @@ import SignOutButton from "./SignOutButton";
 import Sum from "./Sum";
 
 Amplify.configure(config);
+Passwordless.configure({
+  cognitoIdpEndpoint: config.auth.aws_region,
+  clientId: config.auth.user_pool_client_id
+});
+
 const client = generateClient<Schema>();
 
 const Data: React.FC = () => {
