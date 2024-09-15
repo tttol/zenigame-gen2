@@ -5,9 +5,11 @@ import { Authenticator } from "@aws-amplify/ui-react";
 import { Passwordless } from "amazon-cognito-passwordless-auth";
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/api";
+import { getCurrentUser } from "aws-amplify/auth";
 import { useEffect, useState } from "react";
 import CreateItem from "./CreateItem";
 import Detail from "./Detail";
+import Fido2 from "./Fido2";
 import LabeledSum from "./LabeledSum";
 import LoginUserInfo from "./LoginUserInfo";
 import SignOutButton from "./SignOutButton";
@@ -16,7 +18,7 @@ import Sum from "./Sum";
 Amplify.configure(config);
 Passwordless.configure({
   cognitoIdpEndpoint: config.auth.aws_region,
-  clientId: config.auth.user_pool_client_id
+  clientId: config.auth.user_pool_client_id,
 });
 
 const client = generateClient<Schema>();
@@ -28,25 +30,30 @@ const Data: React.FC = () => {
   >([]);
   const [filteredLabel, setFilteredLabel] = useState("all");
 
-
   useEffect(() => {
     subscribeDetails();
   }, []);
 
   const subscribeDetails = async () => {
-    const sub = client.models.Detail.observeQuery().subscribe({
-      next: ({ items }) => {
-        if (items == undefined) {
-          alert("明細取得に失敗しました");
-          return;
-        }
-        setDetails(items);
-        setLabledDetails(items);
-      },
-    });
-    return () => sub.unsubscribe();
+    try {
+      const { signInDetails } = await getCurrentUser();
+      if (!signInDetails) return;
+  
+      const sub = client.models.Detail.observeQuery().subscribe({
+        next: ({ items }) => {
+          if (items == undefined) {
+            alert("明細取得に失敗しました");
+            return;
+          }
+          setDetails(items);
+          setLabledDetails(items);
+        },
+      });
+      return () => sub.unsubscribe();
+    } catch (err: unknown) {
+      console.error(`subscribe err=${JSON.stringify(err)}`);
+    }
   };
-
 
   const handleLabelChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     switch (e.target.value) {
@@ -70,8 +77,28 @@ const Data: React.FC = () => {
         break;
     }
   };
+
+  const signInComponent = {
+    SignIn: {
+      // Header() {
+      //   return (
+      //     <div className="text-slate-600">
+      //       <h2>Face IDでログインする</h2>
+      //       <div>aaaaa</div>
+      //       <hr/>
+      //       <h2>メールアドレス&パスワードでログインする</h2>
+      //     </div>
+      //   );
+      // },
+      Header() {
+        return Fido2();
+      },
+    },
+  };
+
   return (
     <>
+      {/* <Authenticator components={signInComponent}> */}
       <Authenticator>
         {({ signOut, user }) => (
           <>
