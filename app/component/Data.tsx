@@ -1,24 +1,36 @@
 "use client";
 import { Schema } from "@/amplify/data/resource";
-import config from "@/amplify_outputs.json";
+import outputs from "@/amplify_outputs.json";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { Passwordless } from "amazon-cognito-passwordless-auth";
+import {
+  Fido2Toast,
+  PasswordlessContextProvider,
+  usePasswordless,
+} from "amazon-cognito-passwordless-auth/react";
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/api";
 import { getCurrentUser } from "aws-amplify/auth";
 import { useEffect, useState } from "react";
 import CreateItem from "./CreateItem";
 import Detail from "./Detail";
-import Fido2 from "./Fido2";
+import Fido2SignIn from "./Fido2SignIn";
 import LabeledSum from "./LabeledSum";
 import LoginUserInfo from "./LoginUserInfo";
 import SignOutButton from "./SignOutButton";
 import Sum from "./Sum";
+import ManageDevice from "./ManageDevice";
 
-Amplify.configure(config);
+Amplify.configure(outputs);
 Passwordless.configure({
-  cognitoIdpEndpoint: config.auth.aws_region,
-  clientId: config.auth.user_pool_client_id,
+  clientId: outputs.auth.user_pool_client_id,
+  cognitoIdpEndpoint: outputs.auth.aws_region,
+  fido2: {
+    baseUrl: outputs.custom.fido2ApiUrl,
+    authenticatorSelection: {
+      userVerification: "required",
+    },
+  },
 });
 
 const client = generateClient<Schema>();
@@ -38,7 +50,7 @@ const Data: React.FC = () => {
     try {
       const { signInDetails } = await getCurrentUser();
       if (!signInDetails) return;
-  
+
       const sub = client.models.Detail.observeQuery().subscribe({
         next: ({ items }) => {
           if (items == undefined) {
@@ -80,63 +92,56 @@ const Data: React.FC = () => {
 
   const signInComponent = {
     SignIn: {
-      // Header() {
-      //   return (
-      //     <div className="text-slate-600">
-      //       <h2>Face IDでログインする</h2>
-      //       <div>aaaaa</div>
-      //       <hr/>
-      //       <h2>メールアドレス&パスワードでログインする</h2>
-      //     </div>
-      //   );
-      // },
       Header() {
-        return Fido2();
+        return Fido2SignIn();
       },
     },
   };
 
   return (
     <>
-      {/* <Authenticator components={signInComponent}> */}
-      <Authenticator>
-        {({ signOut, user }) => (
-          <>
-            <LoginUserInfo loginId={user?.signInDetails?.loginId ?? ""} />
-            <div className="text-right">
-              <SignOutButton signOutFunc={signOut} />
-            </div>
-            <Sum labeledDetails={labeledDetails} />
-            <div className="mb-[3.5rem]"></div>
-            <LabeledSum allDetails={details} label="買い出し" />
-            <CreateItem details={details} />
-            <div className="text-right  mb-3 mt-3 text-lg">
-              ラベル：
-              <select
-                value={filteredLabel}
-                onChange={handleLabelChange}
-                className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-auto text-slate-800 bg-white"
-              >
-                <option key="all" value="all">
-                  全ての明細を表示
-                </option>
-                {Array.from(
-                  new Set(
-                    details.map((d) =>
-                      d.label === "" ? "ラベルなし" : d.label
-                    )
-                  )
-                ).map((l) => (
-                  <option key={l} value={l ?? ""}>
-                    {l}
+      <PasswordlessContextProvider enableLocalUserCache={true}>
+        <Authenticator components={signInComponent} hideSignUp>
+          {({ signOut, user }) => (
+            <>
+              <LoginUserInfo loginId={user?.signInDetails?.loginId ?? ""} />
+              <div className="text-right">
+                <SignOutButton signOutFunc={signOut} />
+              </div>
+              <ManageDevice />
+              <Sum labeledDetails={labeledDetails} />
+              <div className="mb-[3.5rem]"></div>
+              <LabeledSum allDetails={details} label="買い出し" />
+              <CreateItem details={details} />
+              <div className="text-right  mb-3 mt-3 text-lg">
+                ラベル：
+                <select
+                  value={filteredLabel}
+                  onChange={handleLabelChange}
+                  className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-auto text-slate-800 bg-white"
+                >
+                  <option key="all" value="all">
+                    全ての明細を表示
                   </option>
-                ))}
-              </select>
-            </div>
-            <Detail labeledDetails={labeledDetails} />
-          </>
-        )}
-      </Authenticator>
+                  {Array.from(
+                    new Set(
+                      details.map((d) =>
+                        d.label === "" ? "ラベルなし" : d.label
+                      )
+                    )
+                  ).map((l) => (
+                    <option key={l} value={l ?? ""}>
+                      {l}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <Detail labeledDetails={labeledDetails} />
+            </>
+          )}
+        </Authenticator>
+        <Fido2Toast />
+      </PasswordlessContextProvider>
     </>
   );
 };
