@@ -12,9 +12,11 @@ export default function Fido2SignIn() {
       setIsLoading(true);
       const auth = authenticateWithFido2();
       await auth.signedIn;
-      window.location.reload(); //再読込して認証後ページへ遷移させる
+
+      //再読込して認証後のページへ遷移させる
+      window.location.reload(); 
     } catch (err: unknown) {
-      alert(`認証に失敗しました. ${JSON.stringify(err)}`);
+      alert(`認証に失敗もしくはキャンセルされました. ${err}`);
     } finally {
       setIsLoading(false);
     }

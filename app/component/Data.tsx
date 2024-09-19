@@ -5,8 +5,7 @@ import { Authenticator } from "@aws-amplify/ui-react";
 import { Passwordless } from "amazon-cognito-passwordless-auth";
 import {
   Fido2Toast,
-  PasswordlessContextProvider,
-  usePasswordless,
+  PasswordlessContextProvider
 } from "amazon-cognito-passwordless-auth/react";
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/api";
@@ -17,9 +16,9 @@ import Detail from "./Detail";
 import Fido2SignIn from "./Fido2SignIn";
 import LabeledSum from "./LabeledSum";
 import LoginUserInfo from "./LoginUserInfo";
+import ManageDevice from "./ManageDevice";
 import SignOutButton from "./SignOutButton";
 import Sum from "./Sum";
-import ManageDevice from "./ManageDevice";
 
 Amplify.configure(outputs);
 Passwordless.configure({
@@ -108,7 +107,7 @@ const Data: React.FC = () => {
               <div className="text-right">
                 <SignOutButton signOutFunc={signOut} />
               </div>
-              <ManageDevice />
+              <ManageDevice/>
               <Sum labeledDetails={labeledDetails} />
               <div className="mb-[3.5rem]"></div>
               <LabeledSum allDetails={details} label="買い出し" />
