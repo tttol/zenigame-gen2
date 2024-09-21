@@ -4,7 +4,6 @@ import outputs from "@/amplify_outputs.json";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { Passwordless } from "amazon-cognito-passwordless-auth";
 import {
-  Fido2Toast,
   PasswordlessContextProvider
 } from "amazon-cognito-passwordless-auth/react";
 import { Amplify } from "aws-amplify";
@@ -92,7 +91,7 @@ const Data: React.FC = () => {
   const signInComponent = {
     SignIn: {
       Header() {
-        return Fido2SignIn();
+        return <Fido2SignIn/>;
       },
     },
   };
@@ -139,7 +138,6 @@ const Data: React.FC = () => {
             </>
           )}
         </Authenticator>
-        <Fido2Toast />
       </PasswordlessContextProvider>
     </>
   );
