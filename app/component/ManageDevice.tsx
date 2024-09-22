@@ -23,9 +23,11 @@ export default function ManageDevice() {
     try {
       setIsLoading(true);
       await fido2CreateCredential({ friendlyName: deviceName });
+      console.log("Regisration of FIDO2 device has succeeded.")
       alert("デバイス登録に成功しました.");
       window.location.reload();
     } catch (err: unknown) {
+      console.error(`Failed to regsiter FIDO2 device. err=${err}`);
       alert(`デバイス登録に失敗しました. ${JSON.stringify(err)}`);
     } finally {
       setIsLoading(false);
