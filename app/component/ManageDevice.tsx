@@ -69,7 +69,7 @@ export default function ManageDevice() {
               </div>
             )}
             {fido2Credentials?.length === 0 &&
-              "認証デバイスが登録されていません。下記のテキストボックスから登録お願いします。"}
+              <div>認証デバイスが登録されていません。下記のテキストボックスから登録お願いします。</div>}
             {fido2Credentials?.map((credential: StoredCredential) => (
               <Device key={credential.credentialId} credential={credential} />
             ))}
