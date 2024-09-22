@@ -3,12 +3,9 @@ import { Schema } from "@/amplify/data/resource";
 import outputs from "@/amplify_outputs.json";
 import { Authenticator } from "@aws-amplify/ui-react";
 import { Passwordless } from "amazon-cognito-passwordless-auth";
-import {
-  PasswordlessContextProvider
-} from "amazon-cognito-passwordless-auth/react";
+import { PasswordlessContextProvider } from "amazon-cognito-passwordless-auth/react";
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/api";
-import { getCurrentUser } from "aws-amplify/auth";
 import { useEffect, useState } from "react";
 import CreateItem from "./CreateItem";
 import Detail from "./Detail";
@@ -41,28 +38,19 @@ const Data: React.FC = () => {
   const [filteredLabel, setFilteredLabel] = useState("all");
 
   useEffect(() => {
-    subscribeDetails();
+    fetchDetails();
   }, []);
 
-  const subscribeDetails = async () => {
-    try {
-      const { signInDetails } = await getCurrentUser();
-      if (!signInDetails) return;
-
-      const sub = client.models.Detail.observeQuery().subscribe({
-        next: ({ items }) => {
-          if (items == undefined) {
-            alert("明細取得に失敗しました");
-            return;
-          }
-          setDetails(items);
-          setLabledDetails(items);
-        },
-      });
-      return () => sub.unsubscribe();
-    } catch (err: unknown) {
-      console.error(`subscribe err=${JSON.stringify(err)}`);
+  const fetchDetails = async () => {
+    const { errors, data: items } = await client.models.Detail.list();
+    if (errors) {
+      alert(`明細取得に失敗しました ${JSON.stringify(errors)}`);
+      return;
     }
+    if (items == undefined) return;
+    
+    setDetails(items);
+    setLabledDetails(items);
   };
 
   const handleLabelChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -91,7 +79,7 @@ const Data: React.FC = () => {
   const signInComponent = {
     SignIn: {
       Header() {
-        return <Fido2SignIn/>;
+        return <Fido2SignIn />;
       },
     },
   };
@@ -106,7 +94,7 @@ const Data: React.FC = () => {
               <div className="text-right">
                 <SignOutButton signOutFunc={signOut} />
               </div>
-              <ManageDevice/>
+              <ManageDevice />
               <Sum labeledDetails={labeledDetails} />
               <div className="mb-[3.5rem]"></div>
               <LabeledSum allDetails={details} label="買い出し" />
