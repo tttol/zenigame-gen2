@@ -1,5 +1,13 @@
-# FIDO2 Autentication(パスキー認証)
-### Lambda関数
+# FIDO2/WebAuthnとは
+- FIDO2
+- WebAuthn
+
+# シーケンス
+パスキー認証のシーケンス図を書く（PlantUML）
+
+AWSリソースベースのシーケンス図を書く
+
+# Lambda関数
 - CustomS3AutoDeleteObjectsCust-eDXjTHkR4qXi
   - 
 - CreateAuthChallen-UOW0y5WZYTzI
