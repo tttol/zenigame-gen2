@@ -2,8 +2,8 @@
 - FIDO2
 - WebAuthn
 
-# シーケンス
-### WebAuthn認証における公開鍵登録フロー
+# WebAuthn
+### 公開鍵登録フロー
 ```mermaid
 sequenceDiagram
     actor User
@@ -25,7 +25,7 @@ sequenceDiagram
 ```
 参考：https://developer.mozilla.org/ja/docs/Web/API/Web_Authentication_API#%E3%82%A6%E3%82%A7%E3%83%96%E8%AA%8D%E8%A8%BC%E3%81%AE%E6%A6%82%E5%BF%B5%E3%81%A8%E4%BD%BF%E3%81%84%E6%96%B9
 
-### WebAuthn認証におけるパスワードレス認証フロー
+### パスワードレス認証フロー
 ```mermaid
 sequenceDiagram
     actor User
@@ -45,7 +45,8 @@ sequenceDiagram
     Server->>Browser: 認証/拒否
 ```
 
-AWSリソースベースのシーケンス図を書く
+# AWSリソースを用いたWebAuthnの実装
+### 公開鍵登録フロー
 - fido2CreateCredential
   - fido2StartCreateCredential  
     - `register-authenticator/start`(cdk/custom-auth/fido2-credentials-api.ts)
@@ -58,7 +59,17 @@ AWSリソースベースのシーケンス図を書く
   - `register-authenticator/complete`
     - クレデンシャル作成完了通知（メール通知）
 
+### パスワードレス認証フロー
+- authenticateWithFido2
+  - `navigator.credentials.get()`
+    - userHandle(Base64)を取得し、そこからusernameを取得
+  - initiateAuthにusernameを引数に渡してコールする(to Cognito)
+- Cognitoカスタム認証フローの開始
+  - [DefineAuth](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-define-auth-challenge.html)
+  - [CreateAuthChallenge](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-create-auth-challenge.html)
+  - [VerifyAuthChallengeResponse](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-verify-auth-challenge-response.html)
 
+参考：https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-define-auth-challenge.html
 
 # Lambda関数
 - CustomS3AutoDeleteObjectsCust-eDXjTHkR4qXi
