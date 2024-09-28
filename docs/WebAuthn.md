@@ -60,14 +60,21 @@ sequenceDiagram
     - クレデンシャル作成完了通知（メール通知）
 
 ### パスワードレス認証フロー
+![cognito-custom-auth](img/cognito-custom-auth.png)
+> 引用：https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html
+
 - authenticateWithFido2
   - `navigator.credentials.get()`
     - userHandle(Base64)を取得し、そこからusernameを取得
   - initiateAuthにusernameを引数に渡してコールする(to Cognito)
 - Cognitoカスタム認証フローの開始
   - [DefineAuth](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-define-auth-challenge.html)
+    - リクエストを元に認証方式を定義する
+    - 新しいchallengeの発行や認証完了を通知する
   - [CreateAuthChallenge](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-create-auth-challenge.html)
+    - challengeを生成してクライアントに送信する
   - [VerifyAuthChallengeResponse](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-verify-auth-challenge-response.html)
+    - クライアントから送信されたchallengeを検証する
 
 参考：https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-define-auth-challenge.html
 
