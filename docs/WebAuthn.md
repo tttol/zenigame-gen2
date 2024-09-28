@@ -1,11 +1,8 @@
-# FIDO2/WebAuthnとは
-- FIDO2
-- WebAuthn
-
 # WebAuthn
 ### 公開鍵登録フロー
 ```mermaid
 sequenceDiagram
+    autonumber
     actor User
     participant Authenticator
     participant Browser
@@ -23,11 +20,14 @@ sequenceDiagram
     Server->>Server: 公開鍵・デバイス情報をDBに登録
     Server->>Browser: 登録完了通知
 ```
+7で生成された秘密鍵は端末に保存される。  
+  
 参考：https://developer.mozilla.org/ja/docs/Web/API/Web_Authentication_API#%E3%82%A6%E3%82%A7%E3%83%96%E8%AA%8D%E8%A8%BC%E3%81%AE%E6%A6%82%E5%BF%B5%E3%81%A8%E4%BD%BF%E3%81%84%E6%96%B9
 
 ### パスワードレス認証フロー
 ```mermaid
 sequenceDiagram
+    autonumber
     actor User
     participant Authenticator
     participant Browser
@@ -76,25 +76,9 @@ sequenceDiagram
   - [VerifyAuthChallengeResponse](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-verify-auth-challenge-response.html)
     - クライアントから送信されたchallengeを検証する
 
-参考：https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-define-auth-challenge.html
+参考
+- https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-define-auth-challenge.html
+- https://github.com/aws-samples/amazon-cognito-passwordless-auth/blob/main/FIDO2.md
 
-# Lambda関数
-- CustomS3AutoDeleteObjectsCust-eDXjTHkR4qXi
-  - 
-- CreateAuthChallen-UOW0y5WZYTzI
-  - create auth challenge
-  - 認証用のチャレンジを生成してフロントエンドに送信
-- DefineAuthChallen-NVy4AAATnbAY
-  - define auth challenge
-- Fido2ChallengePas-1lVImiEPV2Jh
-  - fido2 challenge password
-- Fido2Notification-Pz0QEg351k1j
-  - 認証デバイス登録完了をユーザーに通知するLambda
-- Fido2Passwordless-enYKOaJO0oKT
-  - `register-authenticator/~~~`エンドポイントの処理内容を定義
-- PreSignupPassword-ffUGMKWeLEw3
-- PreTokenPasswordl-abwsbOK5A7Pp
-- VerifyAuthChallen-441RLPPoQkXS
-  - verify auth challenge
-  - フロントから送信された署名を検証する
-  - ここの検証がOKならサインインに成功する
+# backend.tsについて
+[Passwordlessクラス](https://github.com/aws-samples/amazon-cognito-passwordless-auth/blob/main/cdk/lib/cognito-passwordless.ts)のコンストラクターがCDKを用いてAWSリソースを定義しているから。
