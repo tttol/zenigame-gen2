@@ -7,7 +7,7 @@ const SignOutButton: React.FC<{signOutFunc: UseAuthenticator["signOut"] | undefi
         onClick={signOutFunc}
         className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg mt-3"
       >
-        Sign Out
+        サインアウト
       </button>
     </>
   );

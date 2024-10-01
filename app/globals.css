@@ -109,3 +109,15 @@ a {
     color-scheme: dark;
   }
 }
+
+@layer components {
+  .transition-height {
+    @apply overflow-hidden transition-all duration-1000 ease-in-out;
+    max-height: 0;
+    opacity: 0;
+  }
+  .transition-height.show {
+    max-height: 500px;
+    opacity: 1;
+  }
+}
