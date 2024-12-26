@@ -49,6 +49,7 @@ const Data: React.FC = () => {
     }
     if (items == undefined) return;
     
+    console.debug(`${items.length}, ${items}`);
     setDetails(items);
     setLabledDetails(items);
   };
