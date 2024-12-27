@@ -1,0 +1,4097 @@
+{
+    "Items": [
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:52:32.263Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-12T03:44:36.071Z"
+            },
+            "id": {
+                "S": "IWSOMZj5"
+            },
+            "price": {
+                "N": "1152"
+            },
+            "name": {
+                "S": "ダイエー"
+            },
+            "paidAt": {
+                "S": "2024-07-12"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-29T00:42:49.836Z"
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-04T06:57:28.166Z"
+            },
+            "id": {
+                "S": "QO7crXvg"
+            },
+            "price": {
+                "N": "2404"
+            },
+            "name": {
+                "S": "ショルダーバッグ"
+            },
+            "paidAt": {
+                "S": "2024-10-04"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-12-26T00:50:17.950Z"
+            },
+            "label": {
+                "S": "ごはん"
+            },
+            "paidByUserB": {
+                "BOOL": false
+            },
+            "createdAt": {
+                "S": "2024-11-30T20:10:13.007Z"
+            },
+            "id": {
+                "S": "qop851Gi"
+            },
+            "price": {
+                "N": "2580"
+            },
+            "name": {
+                "S": "ケンタッキー"
+            },
+            "paidAt": {
+                "S": "2024-12-01"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:52:32.264Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-13T19:13:09.160Z"
+            },
+            "id": {
+                "S": "WmRPcHpn"
+            },
+            "price": {
+                "N": "6552"
+            },
+            "name": {
+                "S": "ラムー"
+            },
+            "paidAt": {
+                "S": "2024-07-14"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-11-30T20:09:53.312Z"
+            },
+            "label": {
+                "S": "臨時出費"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-29T07:45:04.141Z"
+            },
+            "id": {
+                "S": "usGCmW5h"
+            },
+            "price": {
+                "N": "2230"
+            },
+            "name": {
+                "S": "手首サポーター"
+            },
+            "paidAt": {
+                "S": "2024-10-29"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-02-02T11:40:12.524Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "NULL": true
+            },
+            "createdAt": {
+                "S": "2024-02-02T11:40:12.524Z"
+            },
+            "price": {
+                "N": "5400"
+            },
+            "id": {
+                "S": "KcwuI5EB"
+            },
+            "name": {
+                "S": "鳥貴族"
+            },
+            "paidAt": {
+                "S": "2024-02-02"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.783Z"
+            },
+            "label": {
+                "S": "臨時出費"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-06-11T23:00:58.702Z"
+            },
+            "id": {
+                "S": "uYYyqY0W"
+            },
+            "price": {
+                "N": "6930"
+            },
+            "name": {
+                "S": "透オカン還暦祝い"
+            },
+            "paidAt": {
+                "S": "2024-06-12"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T03:26:08.701Z"
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-23T01:41:14.097Z"
+            },
+            "id": {
+                "S": "F5lU6E7d"
+            },
+            "price": {
+                "N": "110"
+            },
+            "name": {
+                "S": "霧吹き"
+            },
+            "paidAt": {
+                "S": "2024-08-23"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T03:26:08.679Z"
+            },
+            "label": {
+                "S": "臨時出費"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-29T01:46:39.736Z"
+            },
+            "id": {
+                "S": "3rxGIkZ4"
+            },
+            "price": {
+                "N": "1300"
+            },
+            "name": {
+                "S": "GOタクシー"
+            },
+            "paidAt": {
+                "S": "2024-08-29"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": false
+            },
+            "updatedAt": {
+                "S": "2024-12-26T00:51:41.157Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "createdAt": {
+                "S": "2024-12-26T00:51:41.157Z"
+            },
+            "price": {
+                "N": "4155"
+            },
+            "id": {
+                "S": "KkkkPM52"
+            },
+            "name": {
+                "S": "しゅうくんボディークリーム２"
+            },
+            "paidAt": {
+                "S": "2024-12-26"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-30T04:25:27.303Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-30T04:25:27.303Z"
+            },
+            "price": {
+                "N": "100"
+            },
+            "id": {
+                "S": "ApEJWzG8"
+            },
+            "name": {
+                "S": "消せるかな？"
+            },
+            "paidAt": {
+                "S": "2023-12-30"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.784Z"
+            },
+            "label": {
+                "S": "旅行"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-04-20T02:11:31.088Z"
+            },
+            "id": {
+                "S": "oCfj6NdH"
+            },
+            "price": {
+                "N": "2600"
+            },
+            "name": {
+                "S": "佐川美術館"
+            },
+            "paidAt": {
+                "S": "2024-04-20"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-12-26T01:21:24.323Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-12-21T07:01:03.790Z"
+            },
+            "id": {
+                "S": "OgCSAhJs"
+            },
+            "price": {
+                "N": "9191"
+            },
+            "name": {
+                "S": "たこいち"
+            },
+            "paidAt": {
+                "S": "2024-12-21"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T01:50:05.430Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-19T05:09:39.714Z"
+            },
+            "id": {
+                "S": "uigD60jg"
+            },
+            "price": {
+                "N": "475"
+            },
+            "name": {
+                "S": "今八商店"
+            },
+            "paidAt": {
+                "S": "2024-08-19"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.790Z"
+            },
+            "label": {
+                "S": "ごはん"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-05-11T03:34:10.411Z"
+            },
+            "id": {
+                "S": "tgrUaCRQ"
+            },
+            "price": {
+                "N": "2200"
+            },
+            "name": {
+                "S": "二滝"
+            },
+            "paidAt": {
+                "S": "2024-05-11"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-11-30T06:08:12.222Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-11-17T04:02:45.113Z"
+            },
+            "id": {
+                "S": "LH49Hz4A"
+            },
+            "price": {
+                "N": "1006"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-11-17"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-02-09T05:50:32.604Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "引越"
+            },
+            "createdAt": {
+                "S": "2024-02-09T05:50:32.604Z"
+            },
+            "price": {
+                "N": "146300"
+            },
+            "id": {
+                "S": "a3TYETKF"
+            },
+            "name": {
+                "S": "引っ越し代"
+            },
+            "paidAt": {
+                "S": "2024-02-09"
+            }
+        },
+        {
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "1109"
+            },
+            "id": {
+                "S": "16"
+            },
+            "name": {
+                "S": "2人共支払済（DUMMY）"
+            },
+            "paidAt": {
+                "S": "2023-12-08"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:54:41.442Z"
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-07T03:03:28.979Z"
+            },
+            "id": {
+                "S": "3lzFqX9e"
+            },
+            "price": {
+                "N": "220"
+            },
+            "name": {
+                "S": "キャンドゥ"
+            },
+            "paidAt": {
+                "S": "2024-07-07"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-31T14:21:38.948Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-31T14:21:38.948Z"
+            },
+            "price": {
+                "N": "222"
+            },
+            "id": {
+                "S": "HT9Z45lq"
+            },
+            "name": {
+                "S": "aaaa"
+            },
+            "paidAt": {
+                "S": "2023-12-31"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.796Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-06-10T13:18:21.572Z"
+            },
+            "id": {
+                "S": "XBiyNR1X"
+            },
+            "price": {
+                "N": "3630"
+            },
+            "name": {
+                "S": "業務スーパー"
+            },
+            "paidAt": {
+                "S": "2024-06-10"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-11-24T01:25:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-11-24T01:25:00+09:00"
+            },
+            "price": {
+                "N": "57942"
+            },
+            "id": {
+                "S": "2"
+            },
+            "name": {
+                "S": "照明"
+            },
+            "paidAt": {
+                "S": "2023-11-23"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-12-26T01:21:24.327Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-12-14T09:39:19.014Z"
+            },
+            "id": {
+                "S": "8UkiMD7u"
+            },
+            "price": {
+                "N": "312"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-12-14"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T01:50:05.432Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-11T04:46:17.802Z"
+            },
+            "id": {
+                "S": "XWWeFYWD"
+            },
+            "price": {
+                "N": "1087"
+            },
+            "name": {
+                "S": "フレッシュ・マルハチ"
+            },
+            "paidAt": {
+                "S": "2024-08-11"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "327"
+            },
+            "id": {
+                "S": "13"
+            },
+            "name": {
+                "S": "洗剤"
+            },
+            "paidAt": {
+                "S": "2023-11-18"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-01-01T03:29:14.035Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-01-01T03:29:14.035Z"
+            },
+            "price": {
+                "N": "196"
+            },
+            "id": {
+                "S": "NViJfb7B"
+            },
+            "name": {
+                "S": "ビニール手袋"
+            },
+            "paidAt": {
+                "S": "2023-12-30"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-11-30T06:08:12.224Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-29T02:15:40.716Z"
+            },
+            "id": {
+                "S": "y6Bw1Ie7"
+            },
+            "price": {
+                "N": "1138"
+            },
+            "name": {
+                "S": "ダイエー"
+            },
+            "paidAt": {
+                "S": "2024-10-29"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.807Z"
+            },
+            "label": {
+                "S": "旅行"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-04-24T13:18:51.102Z"
+            },
+            "id": {
+                "S": "yJJHrCtq"
+            },
+            "price": {
+                "N": "1386"
+            },
+            "name": {
+                "S": "バームクーヘン"
+            },
+            "paidAt": {
+                "S": "2024-04-20"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-09-30T05:18:43.862Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-09-10T06:32:18.593Z"
+            },
+            "id": {
+                "S": "99DhKlMj"
+            },
+            "price": {
+                "N": "1252"
+            },
+            "name": {
+                "S": "フレッシュ・マルハチ"
+            },
+            "paidAt": {
+                "S": "2024-09-10"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "1010"
+            },
+            "id": {
+                "S": "8"
+            },
+            "name": {
+                "S": "野菜"
+            },
+            "paidAt": {
+                "S": "2023-11-10"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-29T00:27:43.387Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-18T01:13:04.436Z"
+            },
+            "id": {
+                "S": "gEEBflVX"
+            },
+            "price": {
+                "N": "1340"
+            },
+            "name": {
+                "S": "ボンボンロケット"
+            },
+            "paidAt": {
+                "S": "2024-10-18"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "4609"
+            },
+            "id": {
+                "S": "9"
+            },
+            "name": {
+                "S": "ラ・ムー"
+            },
+            "paidAt": {
+                "S": "2023-11-11"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-01-13T07:57:56.341Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-01-13T07:57:56.341Z"
+            },
+            "price": {
+                "N": "4483"
+            },
+            "id": {
+                "S": "kPIUSnbj"
+            },
+            "name": {
+                "S": "ピザぱーちー"
+            },
+            "paidAt": {
+                "S": "2024-01-13"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-11-24T01:25:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-11-24T01:25:00+09:00"
+            },
+            "price": {
+                "N": "49800"
+            },
+            "id": {
+                "S": "1"
+            },
+            "name": {
+                "S": "ロボロック"
+            },
+            "paidAt": {
+                "S": "2023-11-23"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T01:50:05.390Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-29T01:34:11.259Z"
+            },
+            "id": {
+                "S": "iD0U7YhM"
+            },
+            "price": {
+                "N": "1404"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-08-29"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-31T14:45:10.643Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-31T14:45:10.643Z"
+            },
+            "price": {
+                "N": "233"
+            },
+            "id": {
+                "S": "KPwDBAy3"
+            },
+            "name": {
+                "S": "update test in prod"
+            },
+            "paidAt": {
+                "S": "2023-12-31"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T03:26:08.680Z"
+            },
+            "label": {
+                "S": "臨時出費"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-14T16:51:18.401Z"
+            },
+            "id": {
+                "S": "ai4VD4wp"
+            },
+            "price": {
+                "N": "700"
+            },
+            "name": {
+                "S": "GOタクシー"
+            },
+            "paidAt": {
+                "S": "2024-07-30"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-14T07:29:11.252Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-14T07:29:11.252Z"
+            },
+            "price": {
+                "N": "333"
+            },
+            "id": {
+                "S": "2d624933732900b67f6a95a76a41a51b60344d2daa5b72080f9ed589adfec720"
+            },
+            "name": {
+                "S": "aaa"
+            },
+            "paidAt": {
+                "S": "2023-12-19"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.794Z"
+            },
+            "label": {
+                "S": "臨時出費"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-06-18T09:16:04.254Z"
+            },
+            "id": {
+                "S": "EgaUNcDA"
+            },
+            "price": {
+                "N": "2464"
+            },
+            "name": {
+                "S": "透　父の日"
+            },
+            "paidAt": {
+                "S": "2024-06-18"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-03-07T13:26:16.669Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "createdAt": {
+                "S": "2024-03-07T13:26:16.669Z"
+            },
+            "price": {
+                "N": "2899"
+            },
+            "id": {
+                "S": "mcGkh3Gz"
+            },
+            "name": {
+                "S": "お風呂イス・洗面器"
+            },
+            "paidAt": {
+                "S": "2024-03-07"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-29T00:27:43.365Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-28T07:09:25.018Z"
+            },
+            "id": {
+                "S": "DKOcaiGt"
+            },
+            "price": {
+                "N": "4563"
+            },
+            "name": {
+                "S": "たこいち"
+            },
+            "paidAt": {
+                "S": "2024-10-25"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-29T00:27:43.386Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-28T07:09:39.217Z"
+            },
+            "id": {
+                "S": "YbC6dM00"
+            },
+            "price": {
+                "N": "1238"
+            },
+            "name": {
+                "S": "業務スーパー"
+            },
+            "paidAt": {
+                "S": "2024-10-28"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "1423"
+            },
+            "id": {
+                "S": "6"
+            },
+            "name": {
+                "S": "業務スーパー"
+            },
+            "paidAt": {
+                "S": "2023-10-30"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-11-30T06:08:12.225Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-11-03T07:36:32.262Z"
+            },
+            "id": {
+                "S": "lH9xkNNE"
+            },
+            "price": {
+                "N": "4382"
+            },
+            "name": {
+                "S": "たこいち"
+            },
+            "paidAt": {
+                "S": "2024-11-03"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-03-07T13:26:38.107Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "createdAt": {
+                "S": "2024-03-07T13:26:38.107Z"
+            },
+            "price": {
+                "N": "657"
+            },
+            "id": {
+                "S": "0SSl53ES"
+            },
+            "name": {
+                "S": "ぷちぷち"
+            },
+            "paidAt": {
+                "S": "2024-03-07"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-09-30T05:18:43.861Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-09-26T02:23:08.305Z"
+            },
+            "id": {
+                "S": "3yMfeck0"
+            },
+            "price": {
+                "N": "1290"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-09-26"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-11-30T06:08:12.223Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-11-10T03:19:22.966Z"
+            },
+            "id": {
+                "S": "VQAud65K"
+            },
+            "price": {
+                "N": "513"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-11-10"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.819Z"
+            },
+            "label": {
+                "S": "臨時出費"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-06-16T02:42:50.516Z"
+            },
+            "id": {
+                "S": "LFIOmSUV"
+            },
+            "price": {
+                "N": "2390"
+            },
+            "name": {
+                "S": "さえパパ父の日"
+            },
+            "paidAt": {
+                "S": "2024-06-16"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:52:32.265Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-05T10:08:02.045Z"
+            },
+            "id": {
+                "S": "A3RqcDJM"
+            },
+            "price": {
+                "N": "745"
+            },
+            "name": {
+                "S": "野菜とたまご"
+            },
+            "paidAt": {
+                "S": "2024-07-05"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-02-03T01:04:26.246Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "NULL": true
+            },
+            "createdAt": {
+                "S": "2024-02-03T01:04:26.246Z"
+            },
+            "price": {
+                "N": "3365"
+            },
+            "id": {
+                "S": "Z1b0MKbJ"
+            },
+            "name": {
+                "S": "ダイエー　恵方巻など"
+            },
+            "paidAt": {
+                "S": "2024-02-03"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-12-25T04:34:00.135Z"
+            },
+            "paidByUserB": {
+                "BOOL": false
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "createdAt": {
+                "S": "2024-12-25T04:34:00.135Z"
+            },
+            "price": {
+                "N": "704"
+            },
+            "id": {
+                "S": "pN1IYn0u"
+            },
+            "name": {
+                "S": "チーズがりがり"
+            },
+            "paidAt": {
+                "S": "2024-12-25"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:52:32.263Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-20T02:24:21.696Z"
+            },
+            "id": {
+                "S": "xvCaz4qf"
+            },
+            "price": {
+                "N": "1670"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-07-20"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-01T22:16:36.588Z"
+            },
+            "label": {
+                "S": ""
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-09-10T02:54:47.917Z"
+            },
+            "id": {
+                "S": "eMZ1WdIy"
+            },
+            "price": {
+                "N": "1080"
+            },
+            "name": {
+                "S": "スタイ"
+            },
+            "paidAt": {
+                "S": "2024-09-10"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:54:41.413Z"
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-14T10:31:03.272Z"
+            },
+            "id": {
+                "S": "CjFLD8WD"
+            },
+            "price": {
+                "N": "0"
+            },
+            "name": {
+                "S": "497"
+            },
+            "paidAt": {
+                "S": "2024-07-14"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-29T00:27:43.383Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-14T02:58:42.860Z"
+            },
+            "id": {
+                "S": "289xPLjA"
+            },
+            "price": {
+                "N": "600"
+            },
+            "name": {
+                "S": "粗大ゴミ"
+            },
+            "paidAt": {
+                "S": "2024-10-14"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-02-23T03:12:53.521Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "createdAt": {
+                "S": "2024-02-23T03:12:53.521Z"
+            },
+            "price": {
+                "N": "3426"
+            },
+            "id": {
+                "S": "Rhik5vtV"
+            },
+            "name": {
+                "S": "ラムー"
+            },
+            "paidAt": {
+                "S": "2024-02-23"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-11-30T20:09:53.273Z"
+            },
+            "label": {
+                "S": "ごはん"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-30T02:51:43.978Z"
+            },
+            "id": {
+                "S": "iWCI4WhA"
+            },
+            "price": {
+                "N": "2700"
+            },
+            "name": {
+                "S": "KITTEランチ"
+            },
+            "paidAt": {
+                "S": "2024-10-30"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T03:26:08.687Z"
+            },
+            "label": {
+                "S": "臨時出費"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-29T01:48:20.294Z"
+            },
+            "id": {
+                "S": "o8KgOogK"
+            },
+            "price": {
+                "N": "1400"
+            },
+            "name": {
+                "S": "GOタクシー（往復）"
+            },
+            "paidAt": {
+                "S": "2024-08-26"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-29T00:27:43.390Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-20T12:05:55.348Z"
+            },
+            "id": {
+                "S": "JBQtdykB"
+            },
+            "price": {
+                "N": "710"
+            },
+            "name": {
+                "S": "八百屋さん"
+            },
+            "paidAt": {
+                "S": "2024-10-20"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-09-30T05:18:43.862Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-09-17T03:36:01.147Z"
+            },
+            "id": {
+                "S": "YUIyzK90"
+            },
+            "price": {
+                "N": "714"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-09-17"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T03:26:08.701Z"
+            },
+            "label": {
+                "S": "臨時出費"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-14T16:51:53.994Z"
+            },
+            "id": {
+                "S": "cRRp8p7N"
+            },
+            "price": {
+                "N": "1200"
+            },
+            "name": {
+                "S": "GOタクシー"
+            },
+            "paidAt": {
+                "S": "2024-08-07"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-11-30T06:08:12.211Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-11-20T06:40:10.722Z"
+            },
+            "id": {
+                "S": "nMTTzF1Q"
+            },
+            "price": {
+                "N": "2845"
+            },
+            "name": {
+                "S": "たこいち・業務スーパー"
+            },
+            "paidAt": {
+                "S": "2024-11-20"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:54:41.443Z"
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-28T02:13:57.823Z"
+            },
+            "id": {
+                "S": "WTVu0inK"
+            },
+            "price": {
+                "N": "497"
+            },
+            "name": {
+                "S": "スタンプ代"
+            },
+            "paidAt": {
+                "S": "2024-07-28"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T03:26:08.672Z"
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-16T09:19:35.529Z"
+            },
+            "id": {
+                "S": "ZYt4qq9Y"
+            },
+            "price": {
+                "N": "2380"
+            },
+            "name": {
+                "S": "おくるみ"
+            },
+            "paidAt": {
+                "S": "2024-08-15"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "350"
+            },
+            "id": {
+                "S": "5"
+            },
+            "name": {
+                "S": "愛菜ランド"
+            },
+            "paidAt": {
+                "S": "2023-10-27"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:52:32.259Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-20T03:07:14.255Z"
+            },
+            "id": {
+                "S": "FRutFqG5"
+            },
+            "price": {
+                "N": "1627"
+            },
+            "name": {
+                "S": "業務スーパー"
+            },
+            "paidAt": {
+                "S": "2024-07-20"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-02-18T00:41:46.716Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "createdAt": {
+                "S": "2024-02-18T00:41:46.716Z"
+            },
+            "price": {
+                "N": "6450"
+            },
+            "id": {
+                "S": "h4XafNGe"
+            },
+            "name": {
+                "S": "レースカーテン"
+            },
+            "paidAt": {
+                "S": "2024-02-18"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:54:41.418Z"
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-07T08:29:34.411Z"
+            },
+            "id": {
+                "S": "46wAmyEe"
+            },
+            "price": {
+                "N": "550"
+            },
+            "name": {
+                "S": "キャンドゥ"
+            },
+            "paidAt": {
+                "S": "2024-07-07"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-02-03T05:23:59.767Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "NULL": true
+            },
+            "createdAt": {
+                "S": "2024-02-03T05:23:59.767Z"
+            },
+            "price": {
+                "N": "1362"
+            },
+            "id": {
+                "S": "uEgBob5i"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-02-03"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.804Z"
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-06-04T01:54:58.561Z"
+            },
+            "id": {
+                "S": "Kh0FOMCt"
+            },
+            "price": {
+                "N": "1200"
+            },
+            "name": {
+                "S": "コインランドリー"
+            },
+            "paidAt": {
+                "S": "2024-06-04"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-18T23:57:38.227Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-18T23:57:38.227Z"
+            },
+            "price": {
+                "N": "1234"
+            },
+            "id": {
+                "S": "RjOmXn63"
+            },
+            "name": {
+                "S": "乱数値てすと"
+            },
+            "paidAt": {
+                "S": "2023-12-12"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "898"
+            },
+            "id": {
+                "S": "4"
+            },
+            "name": {
+                "S": "ドンキ(歯磨き粉ボディソープ柔軟剤)"
+            },
+            "paidAt": {
+                "S": "2023-10-26"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.808Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-06-21T01:43:17.303Z"
+            },
+            "id": {
+                "S": "gRfimO0o"
+            },
+            "price": {
+                "N": "1406"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-06-21"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-11-30T06:08:12.218Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-11-30T04:44:39.362Z"
+            },
+            "id": {
+                "S": "oEA2OnsB"
+            },
+            "price": {
+                "N": "6801"
+            },
+            "name": {
+                "S": "たこいち"
+            },
+            "paidAt": {
+                "S": "2024-11-30"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-02-12T23:18:43.720Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "NULL": true
+            },
+            "createdAt": {
+                "S": "2024-02-12T23:18:43.720Z"
+            },
+            "price": {
+                "N": "1937"
+            },
+            "id": {
+                "S": "Q0d8S0O4"
+            },
+            "name": {
+                "S": "ライフお寿司"
+            },
+            "paidAt": {
+                "S": "2024-02-13"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-09-30T05:18:43.872Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-09-26T02:09:32.716Z"
+            },
+            "id": {
+                "S": "Kae7mFRm"
+            },
+            "price": {
+                "N": "1257"
+            },
+            "name": {
+                "S": "八百鮮"
+            },
+            "paidAt": {
+                "S": "2024-09-26"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-14T07:34:33.922Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-14T07:34:33.922Z"
+            },
+            "price": {
+                "N": "22222"
+            },
+            "id": {
+                "S": "714b535d34d5e995a89328d59626b2ae966fd1b92b30564ef364b3bd1d04b41a"
+            },
+            "name": {
+                "S": "bbb"
+            },
+            "paidAt": {
+                "S": "2023-12-13"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-11-30T20:09:53.306Z"
+            },
+            "label": {
+                "S": "ごはん"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-11-09T07:18:04.743Z"
+            },
+            "id": {
+                "S": "n8sylqTk"
+            },
+            "price": {
+                "N": "1890"
+            },
+            "name": {
+                "S": "マクド"
+            },
+            "paidAt": {
+                "S": "2024-11-09"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-29T00:27:43.394Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-11T07:46:46.682Z"
+            },
+            "id": {
+                "S": "hdNFwFkO"
+            },
+            "price": {
+                "N": "974"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-10-11"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:52:32.261Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-28T02:07:23.768Z"
+            },
+            "id": {
+                "S": "pqA81Yp5"
+            },
+            "price": {
+                "N": "1427"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-07-28"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-18T23:20:33.472Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-18T23:20:33.472Z"
+            },
+            "price": {
+                "N": "100"
+            },
+            "id": {
+                "S": "763819228fe5b10b5ece92cbc688b42feaaa5ac72ed0e093ccb69021a7ffc5ad"
+            },
+            "name": {
+                "S": "1219てすと"
+            },
+            "paidAt": {
+                "S": "2023-12-19"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-01-06T10:07:59.576Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-01-06T10:07:59.576Z"
+            },
+            "price": {
+                "N": "100000"
+            },
+            "id": {
+                "S": "fzaLcYvU"
+            },
+            "name": {
+                "S": "テレビ"
+            },
+            "paidAt": {
+                "S": "2024-01-06"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-01-08T07:46:34.457Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-01-08T07:46:34.457Z"
+            },
+            "price": {
+                "N": "2174"
+            },
+            "id": {
+                "S": "ljsbLMTb"
+            },
+            "name": {
+                "S": "ドンキ・スリコ"
+            },
+            "paidAt": {
+                "S": "2024-01-08"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-29T00:42:49.832Z"
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-18T01:16:24.474Z"
+            },
+            "id": {
+                "S": "NSapi80V"
+            },
+            "price": {
+                "N": "1800"
+            },
+            "name": {
+                "S": "しゅうくんカーディガン"
+            },
+            "paidAt": {
+                "S": "2024-10-18"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:52:32.269Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-20T03:06:55.555Z"
+            },
+            "id": {
+                "S": "8HvLgEVa"
+            },
+            "price": {
+                "N": "77"
+            },
+            "name": {
+                "S": "ラムー"
+            },
+            "paidAt": {
+                "S": "2024-07-20"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.782Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-06-10T13:18:45.375Z"
+            },
+            "id": {
+                "S": "q1BxT14W"
+            },
+            "price": {
+                "N": "6526"
+            },
+            "name": {
+                "S": "ラムー"
+            },
+            "paidAt": {
+                "S": "2024-06-10"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-11-30T06:08:12.210Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-11-09T07:21:11.453Z"
+            },
+            "id": {
+                "S": "bjyWVH4S"
+            },
+            "price": {
+                "N": "3186"
+            },
+            "name": {
+                "S": "たこいち"
+            },
+            "paidAt": {
+                "S": "2024-11-09"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-01-08T14:23:48.314Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-01-08T14:23:48.314Z"
+            },
+            "price": {
+                "N": "0"
+            },
+            "id": {
+                "S": "QeMGSY4m"
+            },
+            "name": {
+                "S": "f"
+            },
+            "paidAt": {
+                "S": ""
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-03-01T01:04:03.445Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "createdAt": {
+                "S": "2024-03-01T01:04:03.445Z"
+            },
+            "price": {
+                "N": "561"
+            },
+            "id": {
+                "S": "MMpwFgw7"
+            },
+            "name": {
+                "S": "ゴミ袋・ビニール手袋"
+            },
+            "paidAt": {
+                "S": "2024-03-01"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-01T22:16:36.578Z"
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-09-10T02:56:13.173Z"
+            },
+            "id": {
+                "S": "z6DwIb4B"
+            },
+            "price": {
+                "N": "8000"
+            },
+            "name": {
+                "S": "タオル類"
+            },
+            "paidAt": {
+                "S": "2024-09-10"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T01:50:05.407Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-29T01:35:31.721Z"
+            },
+            "id": {
+                "S": "hXWs4S16"
+            },
+            "price": {
+                "N": "1195"
+            },
+            "name": {
+                "S": "業務スーパー"
+            },
+            "paidAt": {
+                "S": "2024-08-27"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:52:32.258Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-07T03:04:18.356Z"
+            },
+            "id": {
+                "S": "l2InHQKC"
+            },
+            "price": {
+                "N": "1714"
+            },
+            "name": {
+                "S": "フレッシュ🥕"
+            },
+            "paidAt": {
+                "S": "2024-07-07"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": false
+            },
+            "updatedAt": {
+                "S": "2024-12-14T12:51:24.976Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "createdAt": {
+                "S": "2024-12-14T12:51:24.976Z"
+            },
+            "price": {
+                "N": "5900"
+            },
+            "id": {
+                "S": "vbfCCTGy"
+            },
+            "name": {
+                "S": "みてねプレミアム（年）"
+            },
+            "paidAt": {
+                "S": "2024-12-14"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-02-23T02:28:28.526Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "createdAt": {
+                "S": "2024-02-23T02:28:28.526Z"
+            },
+            "price": {
+                "N": "912"
+            },
+            "id": {
+                "S": "K3i1UqVu"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-02-23"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.789Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-05-04T04:22:18.278Z"
+            },
+            "id": {
+                "S": "ctB9ygsJ"
+            },
+            "price": {
+                "N": "880"
+            },
+            "name": {
+                "S": "ダイソー"
+            },
+            "paidAt": {
+                "S": "2024-05-04"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-01-01T03:29:41.363Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-01-01T03:29:41.363Z"
+            },
+            "price": {
+                "N": "965"
+            },
+            "id": {
+                "S": "O0I8YrkR"
+            },
+            "name": {
+                "S": "リクローおじさん"
+            },
+            "paidAt": {
+                "S": "2023-12-31"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-27T00:15:43.301Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-27T00:15:43.301Z"
+            },
+            "price": {
+                "N": "30"
+            },
+            "id": {
+                "S": "vb3h49vl"
+            },
+            "name": {
+                "S": "デプロイ後てすと"
+            },
+            "paidAt": {
+                "S": "2023-12-27"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.801Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-06-10T13:17:58.816Z"
+            },
+            "id": {
+                "S": "NoxAZHVP"
+            },
+            "price": {
+                "N": "1074"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-06-10"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-01-23T11:10:24.971Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-01-23T11:10:24.971Z"
+            },
+            "price": {
+                "N": "976"
+            },
+            "id": {
+                "S": "eFOu7Mwz"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-01-19"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T03:26:08.682Z"
+            },
+            "label": {
+                "S": "臨時出費"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-29T01:48:50.376Z"
+            },
+            "id": {
+                "S": "0xabJlYr"
+            },
+            "price": {
+                "N": "1300"
+            },
+            "name": {
+                "S": "GOタクシー"
+            },
+            "paidAt": {
+                "S": "2024-08-27"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-01-25T12:48:11.435Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-01-25T12:48:11.435Z"
+            },
+            "price": {
+                "N": "1360"
+            },
+            "id": {
+                "S": "7uJY1zWM"
+            },
+            "name": {
+                "S": "顔パック×2"
+            },
+            "paidAt": {
+                "S": "2024-01-25"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:52:32.262Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-20T03:07:29.684Z"
+            },
+            "id": {
+                "S": "Lnv5orLe"
+            },
+            "price": {
+                "N": "110"
+            },
+            "name": {
+                "S": "コーナン"
+            },
+            "paidAt": {
+                "S": "2024-07-20"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:54:41.444Z"
+            },
+            "label": {
+                "S": "ごはん"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-06-29T09:26:10.935Z"
+            },
+            "id": {
+                "S": "Y5bSB4OY"
+            },
+            "price": {
+                "N": "880"
+            },
+            "name": {
+                "S": "バターケーキ"
+            },
+            "paidAt": {
+                "S": "2024-06-29"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:52:32.226Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-07T03:03:50.680Z"
+            },
+            "id": {
+                "S": "xrLmrmSV"
+            },
+            "price": {
+                "N": "427"
+            },
+            "name": {
+                "S": "マルハチ"
+            },
+            "paidAt": {
+                "S": "2024-07-07"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-09-30T05:18:43.868Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-09-04T01:06:06.665Z"
+            },
+            "id": {
+                "S": "aZzrNiDG"
+            },
+            "price": {
+                "N": "4813"
+            },
+            "name": {
+                "S": "ラムー"
+            },
+            "paidAt": {
+                "S": "2024-09-04"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.782Z"
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-05-04T04:39:42.508Z"
+            },
+            "id": {
+                "S": "Vthiyp4x"
+            },
+            "price": {
+                "N": "2900"
+            },
+            "name": {
+                "S": "ハニカムカレー"
+            },
+            "paidAt": {
+                "S": "2024-05-04"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.799Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-06-01T07:33:51.374Z"
+            },
+            "id": {
+                "S": "a74aaioX"
+            },
+            "price": {
+                "N": "1876"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-06-01"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-01-08T04:42:26.224Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-01-08T04:42:26.224Z"
+            },
+            "price": {
+                "N": "3473"
+            },
+            "id": {
+                "S": "BMxb3JBs"
+            },
+            "name": {
+                "S": "ラムー"
+            },
+            "paidAt": {
+                "S": "2024-01-06"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "1182"
+            },
+            "id": {
+                "S": "7"
+            },
+            "name": {
+                "S": "トイレクイックル、シート"
+            },
+            "paidAt": {
+                "S": "2023-11-04"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-29T00:27:43.403Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-11T07:46:17.736Z"
+            },
+            "id": {
+                "S": "MCgqv4n9"
+            },
+            "price": {
+                "N": "5096"
+            },
+            "name": {
+                "S": "業務スーパー"
+            },
+            "paidAt": {
+                "S": "2024-10-11"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "2210"
+            },
+            "id": {
+                "S": "11"
+            },
+            "name": {
+                "S": "千鳥屋"
+            },
+            "paidAt": {
+                "S": "2023-11-11"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": false
+            },
+            "updatedAt": {
+                "S": "2024-11-09T07:19:47.864Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "createdAt": {
+                "S": "2024-11-09T07:19:47.864Z"
+            },
+            "price": {
+                "N": "3186"
+            },
+            "id": {
+                "S": "Iovd5nca"
+            },
+            "name": {
+                "S": "たこいち"
+            },
+            "paidAt": {
+                "S": "2024-11-09"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "1190"
+            },
+            "id": {
+                "S": "3"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2023-10-22"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-29T00:27:43.387Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-19T02:21:22.167Z"
+            },
+            "id": {
+                "S": "oy4emRMp"
+            },
+            "price": {
+                "N": "326"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-10-19"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-03-05T13:16:46.358Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "createdAt": {
+                "S": "2024-03-05T13:16:46.358Z"
+            },
+            "price": {
+                "N": "74100"
+            },
+            "id": {
+                "S": "khMwGtCM"
+            },
+            "name": {
+                "S": "ダイニングテーブル"
+            },
+            "paidAt": {
+                "S": "2024-03-05"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-05T07:54:41.418Z"
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-07-21T08:05:08.004Z"
+            },
+            "id": {
+                "S": "LFiqUMia"
+            },
+            "price": {
+                "N": "1200"
+            },
+            "name": {
+                "S": "ベビーカークッション"
+            },
+            "paidAt": {
+                "S": "2024-07-21"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-10-29T00:42:49.832Z"
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-10-09T05:04:40.357Z"
+            },
+            "id": {
+                "S": "uPHSDjTP"
+            },
+            "price": {
+                "N": "1200"
+            },
+            "name": {
+                "S": "しましまぐるぐる絵本"
+            },
+            "paidAt": {
+                "S": "2024-10-09"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": false
+            },
+            "updatedAt": {
+                "S": "2024-12-05T04:27:32.537Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "createdAt": {
+                "S": "2024-12-05T04:27:32.537Z"
+            },
+            "price": {
+                "N": "4155"
+            },
+            "id": {
+                "S": "t2s57i1d"
+            },
+            "name": {
+                "S": "しゅうくんボディクリーム"
+            },
+            "paidAt": {
+                "S": "2024-12-05"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.810Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-05-04T06:35:14.928Z"
+            },
+            "id": {
+                "S": "JK40uMLq"
+            },
+            "price": {
+                "N": "660"
+            },
+            "name": {
+                "S": "セリア"
+            },
+            "paidAt": {
+                "S": "2024-05-04"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-12-25T04:34:30.481Z"
+            },
+            "paidByUserB": {
+                "BOOL": false
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "createdAt": {
+                "S": "2024-12-25T04:34:30.481Z"
+            },
+            "price": {
+                "N": "1100"
+            },
+            "id": {
+                "S": "XolwUlYV"
+            },
+            "name": {
+                "S": "パルミジャーノレジャーノ"
+            },
+            "paidAt": {
+                "S": "2024-12-25"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "1667"
+            },
+            "id": {
+                "S": "12"
+            },
+            "name": {
+                "S": "業務スーパー"
+            },
+            "paidAt": {
+                "S": "2023-11-17"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T01:50:05.407Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-05T07:55:01.569Z"
+            },
+            "id": {
+                "S": "9Jxg6G42"
+            },
+            "price": {
+                "N": "908"
+            },
+            "name": {
+                "S": "フレッシュ"
+            },
+            "paidAt": {
+                "S": "2024-08-05"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "763"
+            },
+            "id": {
+                "S": "10"
+            },
+            "name": {
+                "S": "業務スーパー"
+            },
+            "paidAt": {
+                "S": "2023-11-11"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "updatedAt": {
+                "S": "2024-03-04T04:50:17.630Z"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-03-04T04:50:17.630Z"
+            },
+            "price": {
+                "N": "245000"
+            },
+            "id": {
+                "S": "RU2CaZ6u"
+            },
+            "name": {
+                "S": "エアコン"
+            },
+            "paidAt": {
+                "S": "2024-03-04"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "1109"
+            },
+            "id": {
+                "S": "15"
+            },
+            "name": {
+                "S": "指先トング"
+            },
+            "paidAt": {
+                "S": "2023-12-08"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "updatedAt": {
+                "S": "2024-02-11T13:31:18.922Z"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-02-11T13:31:18.922Z"
+            },
+            "price": {
+                "N": "3570"
+            },
+            "id": {
+                "S": "aoZO5y3a"
+            },
+            "name": {
+                "S": "抱っこ紐ダウン＆たまごクラブ中期"
+            },
+            "paidAt": {
+                "S": "2024-02-04"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-09-30T05:18:43.917Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-09-01T05:52:44.254Z"
+            },
+            "id": {
+                "S": "aN7TiA2J"
+            },
+            "price": {
+                "N": "2575"
+            },
+            "name": {
+                "S": "ラムー"
+            },
+            "paidAt": {
+                "S": "2024-09-01"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-08-29T01:50:05.397Z"
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-08-09T05:32:28.095Z"
+            },
+            "id": {
+                "S": "qyXyxUmn"
+            },
+            "price": {
+                "N": "7160"
+            },
+            "name": {
+                "S": "ラムー"
+            },
+            "paidAt": {
+                "S": "2024-08-09"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "updatedAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2023-12-10T04:40:00+09:00"
+            },
+            "price": {
+                "N": "343"
+            },
+            "id": {
+                "S": "14"
+            },
+            "name": {
+                "S": "片栗粉"
+            },
+            "paidAt": {
+                "S": "2023-11-19"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": false
+            },
+            "updatedAt": {
+                "S": "2024-11-09T07:18:43.421Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "createdAt": {
+                "S": "2024-11-09T07:18:43.421Z"
+            },
+            "price": {
+                "N": "3186"
+            },
+            "id": {
+                "S": "4IqeFk8a"
+            },
+            "name": {
+                "S": "たこいち"
+            },
+            "paidAt": {
+                "S": "2024-11-09"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Item"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-06-28T02:01:58.809Z"
+            },
+            "label": {
+                "S": "旅行"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "createdAt": {
+                "S": "2024-04-20T02:11:05.854Z"
+            },
+            "id": {
+                "S": "pFhGM7LU"
+            },
+            "price": {
+                "N": "2700"
+            },
+            "name": {
+                "S": "滋賀タクシー"
+            },
+            "paidAt": {
+                "S": "2024-04-20"
+            }
+        }
+    ],
+    "Count": 131,
+    "ScannedCount": 131,
+    "ConsumedCapacity": null
+}

@@ -1,0 +1,263 @@
+{
+    "Items": [
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-12-26T00:50:17.950Z"
+            },
+            "label": {
+                "S": "ごはん"
+            },
+            "paidByUserB": {
+                "BOOL": false
+            },
+            "createdAt": {
+                "S": "2024-11-30T20:10:13.007Z"
+            },
+            "id": {
+                "S": "qop851Gi"
+            },
+            "price": {
+                "N": "2580"
+            },
+            "name": {
+                "S": "ケンタッキー"
+            },
+            "paidAt": {
+                "S": "2024-12-01"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": false
+            },
+            "updatedAt": {
+                "S": "2024-12-26T00:51:41.157Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "createdAt": {
+                "S": "2024-12-26T00:51:41.157Z"
+            },
+            "price": {
+                "N": "4155"
+            },
+            "id": {
+                "S": "KkkkPM52"
+            },
+            "name": {
+                "S": "しゅうくんボディークリーム２"
+            },
+            "paidAt": {
+                "S": "2024-12-26"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-12-25T04:34:00.135Z"
+            },
+            "paidByUserB": {
+                "BOOL": false
+            },
+            "label": {
+                "S": "日用品"
+            },
+            "createdAt": {
+                "S": "2024-12-25T04:34:00.135Z"
+            },
+            "price": {
+                "N": "704"
+            },
+            "id": {
+                "S": "pN1IYn0u"
+            },
+            "name": {
+                "S": "チーズがりがり"
+            },
+            "paidAt": {
+                "S": "2024-12-25"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": false
+            },
+            "updatedAt": {
+                "S": "2024-12-14T12:51:24.976Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "createdAt": {
+                "S": "2024-12-14T12:51:24.976Z"
+            },
+            "price": {
+                "N": "5900"
+            },
+            "id": {
+                "S": "vbfCCTGy"
+            },
+            "name": {
+                "S": "みてねプレミアム（年）"
+            },
+            "paidAt": {
+                "S": "2024-12-14"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": false
+            },
+            "updatedAt": {
+                "S": "2024-11-09T07:19:47.864Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "createdAt": {
+                "S": "2024-11-09T07:19:47.864Z"
+            },
+            "price": {
+                "N": "3186"
+            },
+            "id": {
+                "S": "Iovd5nca"
+            },
+            "name": {
+                "S": "たこいち"
+            },
+            "paidAt": {
+                "S": "2024-11-09"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": false
+            },
+            "updatedAt": {
+                "S": "2024-12-05T04:27:32.537Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "ベビー用品"
+            },
+            "createdAt": {
+                "S": "2024-12-05T04:27:32.537Z"
+            },
+            "price": {
+                "N": "4155"
+            },
+            "id": {
+                "S": "t2s57i1d"
+            },
+            "name": {
+                "S": "しゅうくんボディクリーム"
+            },
+            "paidAt": {
+                "S": "2024-12-05"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": true
+            },
+            "updatedAt": {
+                "S": "2024-12-25T04:34:30.481Z"
+            },
+            "paidByUserB": {
+                "BOOL": false
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "createdAt": {
+                "S": "2024-12-25T04:34:30.481Z"
+            },
+            "price": {
+                "N": "1100"
+            },
+            "id": {
+                "S": "XolwUlYV"
+            },
+            "name": {
+                "S": "パルミジャーノレジャーノ"
+            },
+            "paidAt": {
+                "S": "2024-12-25"
+            }
+        },
+        {
+            "__typename": {
+                "S": "Detail"
+            },
+            "paidByUserA": {
+                "BOOL": false
+            },
+            "updatedAt": {
+                "S": "2024-11-09T07:18:43.421Z"
+            },
+            "paidByUserB": {
+                "BOOL": true
+            },
+            "label": {
+                "S": "買い出し"
+            },
+            "createdAt": {
+                "S": "2024-11-09T07:18:43.421Z"
+            },
+            "price": {
+                "N": "3186"
+            },
+            "id": {
+                "S": "4IqeFk8a"
+            },
+            "name": {
+                "S": "たこいち"
+            },
+            "paidAt": {
+                "S": "2024-11-09"
+            }
+        }
+    ],
+    "Count": 8,
+    "ScannedCount": 131,
+    "ConsumedCapacity": null
+}
