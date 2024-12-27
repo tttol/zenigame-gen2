@@ -90,7 +90,6 @@ const Detail: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
       </div>
 
       {displayDetails
-        .filter((detail) => !detail.paidByUserA || !detail.paidByUserB)
         .sort((a, b) => {// 支払日降順
           const aPaidAt = a.paidAt ? new Date(a.paidAt).getTime() : 0;
           const bPaidAt = b.paidAt ? new Date(b.paidAt).getTime() : 0;
