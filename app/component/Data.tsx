@@ -42,13 +42,17 @@ const Data: React.FC = () => {
   }, []);
 
   const fetchDetails = async () => {
-    const { errors, data: items } = await client.models.Detail.list();
+    const { errors, data: items } = await client.models.Detail.list({
+      filter: {
+        or: [{ paidByUserA: { eq: false } }, { paidByUserB: { eq: false } }],
+      },
+    });
     if (errors) {
       alert(`明細取得に失敗しました ${JSON.stringify(errors)}`);
       return;
     }
     if (items == undefined) return;
-    
+
     console.debug(`${items.length}, ${items}`);
     setDetails(items);
     setLabledDetails(items);
