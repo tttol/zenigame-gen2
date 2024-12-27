@@ -43,7 +43,7 @@ const Data: React.FC = () => {
 
   const fetchDetails = async () => {
     const { errors, data: items } = await client.models.Detail.list({
-      limit: 1000,
+      limit: 10000, // default is 100
       filter: {
         or: [{ paidByUserA: { eq: false } }, { paidByUserB: { eq: false } }],
       },
