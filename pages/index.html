@@ -63,49 +63,36 @@
         <p class="text-3xl mb-3 font-bold">SUMMARY</p>
         <div class="min-h-max m-1 p-3 bg-blue-400 text-slate-100 rounded-xl">
           <div>
-            <p>TOL - 未払い差引合計</p>
+            <p>夫 - 未払い差引合計</p>
             <p class="font-bold text-3xl">￥863</p>
             <p class="text-slate-300 mt-2">￥863(差引前)</p>
           </div>
         </div>
         <div class="min-h-max m-1 mt-3  p-3 bg-pink-400 text-slate-100 rounded-xl">
           <div>
-            <p>SAE - 未払い差引合計</p>
+            <p>妻 - 未払い差引合計</p>
             <p class="font-bold text-3xl">￥0</p>
             <p class="text-slate-300 mt-2">￥0(差引前)</p>
           </div>
         </div>
       </div>
       <div class="mb-[3.5rem]"></div>
-      <div class="min-h-max p-3 bg-purple-400 text-slate-100 rounded-xl my-3">
-        <p class="text-3xl mb-3 font-bold">「買い出し」の支出合計</p>
-        <div class="flex">
-          <div class="min-h-max m-1 p-3 bg-blue-500 text-slate-100 rounded-xl w-1/2">
-            <div>
-              <p>TOL - 支出合計</p>
-              <p class="text-3xl">￥0</p>
-            </div>
-          </div>
-          <div class="min-h-max m-1 p-3 bg-pink-500 text-slate-100 rounded-xl w-1/2">
-            <div>
-              <p>SAE - 支出合計</p>
-              <p class="text-3xl">￥1,726</p>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="bg-green-400 text-white font-bold py-2 px-2 rounded-full w-10 ml-auto mb-3"><svg
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
           <path fill-rule="evenodd"
             d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z"
             clip-rule="evenodd"></path>
         </svg></div>
-      <div class="text-right  mb-3 mt-3 text-lg">ラベル：<select
+
+
+
+      <div class="text-right  mb-3 mt-3 text-lg">ラベル：<select id="label-select"
           class="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-auto text-slate-800 bg-white">
           <option value="all">全ての明細を表示</option>
-          <option value="買い出し">買い出し</option>
+          <option value="shopping">買い出し</option>
+          <option value="emergency">臨時出費</option>
         </select></div>
-      <div class="p-3 bg-slate-500 text-white rounded-xl">
+      <div id="all" class="p-3 bg-slate-500 text-white rounded-xl">
         <div class="text-right">2 件</div>
         <div class="text-right  mb-3 mt-3"><span
             class="bg-purple-400 text-white font-bold py-2 px-2 rounded-full inline-flex">支払い済みにする<svg
@@ -116,24 +103,95 @@
             </svg></span></div>
         <div class="border-b-2 border-slate-400 mb-5">
           <p><span class="pl-2 mr-2"><img alt="userB" loading="lazy" width="128" height="128" decoding="async"
-                data-nimg="1" class="rounded-full w-10 h-10 inline"
-                srcset="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FuserB.947baf13.webp&amp;w=128&amp;q=75 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2FuserB.947baf13.webp&amp;w=256&amp;q=75 2x"
-                src="./ZENIGAME_files/image" style="color: transparent;"></span><span class="font-bold">フレッシュ</span></p>
+                data-nimg="1" class="rounded-full w-10 h-10 inline" src="./ZENIGAME_files/user-a.png"
+                style="color: transparent;"></span><span class="font-bold">薬局でトイレットペーパー</span></p>
           <p class="flex items-end mb-2"><span>￥541</span>&nbsp;-&nbsp;<span>2025/06/06</span><span
               class="bg-blue-300 font-bold py-1 px-2 ml-2 text-white rounded-full text-xs">買い出し</span></p>
         </div>
         <div class="border-b-2 border-slate-400 mb-5">
           <p><span class="pl-2 mr-2"><img alt="userB" loading="lazy" width="128" height="128" decoding="async"
-                data-nimg="1" class="rounded-full w-10 h-10 inline"
-                srcset="/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FuserB.947baf13.webp&amp;w=128&amp;q=75 1x, /_next/image?url=%2F_next%2Fstatic%2Fmedia%2FuserB.947baf13.webp&amp;w=256&amp;q=75 2x"
-                src="./ZENIGAME_files/image" style="color: transparent;"></span><span class="font-bold">業務スーパー</span>
+                data-nimg="1" class="rounded-full w-10 h-10 inline" src="./ZENIGAME_files/user-b.png"
+                style="color: transparent;"></span><span class="font-bold">スーパーでお肉と野菜</span>
+          </p>
+          <p class="flex items-end mb-2"><span>￥1,185</span>&nbsp;-&nbsp;<span>2025/06/01</span><span
+              class="bg-blue-300 font-bold py-1 px-2 ml-2 text-white rounded-full text-xs">買い出し</span></p>
+        </div>
+        <div class="border-b-2 border-slate-400 mb-5">
+          <p><span class="pl-2 mr-2"><img alt="userB" loading="lazy" width="128" height="128" decoding="async"
+                data-nimg="1" class="rounded-full w-10 h-10 inline" src="./ZENIGAME_files/user-b.png"
+                style="color: transparent;"></span><span class="font-bold">洗濯機買い換え</span>
+          </p>
+          <p class="flex items-end mb-2"><span>￥1,185</span>&nbsp;-&nbsp;<span>2025/06/01</span><span
+              class="bg-blue-300 font-bold py-1 px-2 ml-2 text-white rounded-full text-xs">臨時出費</span></p>
+        </div>
+      </div>
+
+      <div id="shopping" class="p-3 bg-slate-500 text-white rounded-xl">
+        <div class="text-right">2 件</div>
+        <div class="text-right  mb-3 mt-3"><span
+            class="bg-purple-400 text-white font-bold py-2 px-2 rounded-full inline-flex">支払い済みにする<svg
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path fill-rule="evenodd"
+                d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z"
+                clip-rule="evenodd"></path>
+            </svg></span></div>
+        <div class="border-b-2 border-slate-400 mb-5">
+          <p><span class="pl-2 mr-2"><img alt="userB" loading="lazy" width="128" height="128" decoding="async"
+                data-nimg="1" class="rounded-full w-10 h-10 inline" src="./ZENIGAME_files/user-a.png"
+                style="color: transparent;"></span><span class="font-bold">薬局でトイレットペーパー</span></p>
+          <p class="flex items-end mb-2"><span>￥541</span>&nbsp;-&nbsp;<span>2025/06/06</span><span
+              class="bg-blue-300 font-bold py-1 px-2 ml-2 text-white rounded-full text-xs">買い出し</span></p>
+        </div>
+        <div class="border-b-2 border-slate-400 mb-5">
+          <p><span class="pl-2 mr-2"><img alt="userB" loading="lazy" width="128" height="128" decoding="async"
+                data-nimg="1" class="rounded-full w-10 h-10 inline" src="./ZENIGAME_files/user-b.png"
+                style="color: transparent;"></span><span class="font-bold">スーパーでお肉と野菜</span>
           </p>
           <p class="flex items-end mb-2"><span>￥1,185</span>&nbsp;-&nbsp;<span>2025/06/01</span><span
               class="bg-blue-300 font-bold py-1 px-2 ml-2 text-white rounded-full text-xs">買い出し</span></p>
         </div>
       </div>
+
+      <div id="emergency" class="p-3 bg-slate-500 text-white rounded-xl">
+        <div class="text-right">2 件</div>
+        <div class="text-right  mb-3 mt-3"><span
+            class="bg-purple-400 text-white font-bold py-2 px-2 rounded-full inline-flex">支払い済みにする<svg
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path fill-rule="evenodd"
+                d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z"
+                clip-rule="evenodd"></path>
+            </svg></span></div>
+        <div class="border-b-2 border-slate-400 mb-5">
+          <p><span class="pl-2 mr-2"><img alt="userB" loading="lazy" width="128" height="128" decoding="async"
+                data-nimg="1" class="rounded-full w-10 h-10 inline" src="./ZENIGAME_files/user-b.png"
+                style="color: transparent;"></span><span class="font-bold">洗濯機買い換え</span>
+          </p>
+          <p class="flex items-end mb-2"><span>￥1,185</span>&nbsp;-&nbsp;<span>2025/06/01</span><span
+              class="bg-blue-300 font-bold py-1 px-2 ml-2 text-white rounded-full text-xs">臨時出費</span></p>
+        </div>
+      </div>
+
     </div>
   </main>
+  <script>
+    // Show only the selected label's div
+    // セレクトボックスの値に応じて該当するdivのみ表示する
+    // 他は非表示にする
+    // 初期表示も対応
+    // ...
+    document.addEventListener('DOMContentLoaded', function () {
+      const select = document.getElementById('label-select')
+      const sections = ['all', 'shopping', 'emergency']
+      function updateDisplay() {
+        const value = select.value
+        sections.forEach(id => {
+          document.getElementById(id).style.display = (id === value) ? '' : 'none'
+        })
+      }
+      select.addEventListener('change', updateDisplay)
+      updateDisplay()
+    })
+  </script>
 </body>
 
 </html>
