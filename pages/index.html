@@ -73,15 +73,23 @@
         <div class="min-h-max m-1 p-3 bg-blue-400 text-slate-100 rounded-xl">
           <div>
             <p>夫 - 未払い差引合計</p>
-            <p class="font-bold text-3xl">￥863</p>
-            <p class="text-slate-300 mt-2">￥863(差引前)</p>
+            <p class="all-total font-bold text-3xl">￥836</p>
+            <p class="all-total text-slate-300 mt-2">￥1,093(差引前)</p>
+            <p class="shopping-total font-bold text-3xl">￥1,093</p>
+            <p class="shopping-total text-slate-300 mt-2">￥1,093(差引前)</p>
+            <p class="emergency-total font-bold text-3xl">￥500</p>
+            <p class="emergency-total text-slate-300 mt-2">￥500(差引前)</p>
           </div>
         </div>
         <div class="min-h-max m-1 mt-3  p-3 bg-pink-400 text-slate-100 rounded-xl">
           <div>
             <p>妻 - 未払い差引合計</p>
-            <p class="font-bold text-3xl">￥0</p>
-            <p class="text-slate-300 mt-2">￥0(差引前)</p>
+            <p class="all-total font-bold text-3xl">￥0</p>
+            <p class="all-total text-slate-300 mt-2">￥271(差引前)</p>
+            <p class="shopping-total font-bold text-3xl">￥0</p>
+            <p class="shopping-total text-slate-300 mt-2">￥0(差引前)</p>
+            <p class="emergency-total font-bold text-3xl">￥0</p>
+            <p class="emergency-total text-slate-300 mt-2">￥0(差引前)</p>
           </div>
         </div>
       </div>
@@ -128,9 +136,9 @@
         <div class="border-b-2 border-slate-400 mb-5">
           <p><span class="pl-2 mr-2"><img alt="userB" loading="lazy" width="128" height="128" decoding="async"
                 data-nimg="1" class="rounded-full w-10 h-10 inline" src="./ZENIGAME_files/user-b.png"
-                style="color: transparent;"></span><span class="font-bold">洗濯機買い換え</span>
+                style="color: transparent;"></span><span class="font-bold">子供のおもちゃ代</span>
           </p>
-          <p class="flex items-end mb-2"><span>￥1,185</span>&nbsp;-&nbsp;<span>2025/06/01</span><span
+          <p class="flex items-end mb-2"><span>￥1,000</span>&nbsp;-&nbsp;<span>2025/06/01</span><span
               class="bg-blue-300 font-bold py-1 px-2 ml-2 text-white rounded-full text-xs">臨時出費</span></p>
         </div>
       </div>
@@ -173,9 +181,9 @@
         <div class="border-b-2 border-slate-400 mb-5">
           <p><span class="pl-2 mr-2"><img alt="userB" loading="lazy" width="128" height="128" decoding="async"
                 data-nimg="1" class="rounded-full w-10 h-10 inline" src="./ZENIGAME_files/user-b.png"
-                style="color: transparent;"></span><span class="font-bold">洗濯機買い換え</span>
+                style="color: transparent;"></span><span class="font-bold">子供のおもちゃ代</span>
           </p>
-          <p class="flex items-end mb-2"><span>￥1,185</span>&nbsp;-&nbsp;<span>2025/06/01</span><span
+          <p class="flex items-end mb-2"><span>￥1,000</span>&nbsp;-&nbsp;<span>2025/06/01</span><span
               class="bg-blue-300 font-bold py-1 px-2 ml-2 text-white rounded-full text-xs">臨時出費</span></p>
         </div>
       </div>
@@ -183,11 +191,6 @@
     </div>
   </main>
   <script>
-    // Show only the selected label's div
-    // セレクトボックスの値に応じて該当するdivのみ表示する
-    // 他は非表示にする
-    // 初期表示も対応
-    // ...
     document.addEventListener('DOMContentLoaded', function () {
       const select = document.getElementById('label-select')
       const sections = ['all', 'shopping', 'emergency']
@@ -196,6 +199,20 @@
         sections.forEach(id => {
           document.getElementById(id).style.display = (id === value) ? '' : 'none'
         })
+        // Show/hide summary totals
+        const totalClasses = ['all-total', 'shopping-total', 'emergency-total']
+        totalClasses.forEach(cls => {
+          document.querySelectorAll('.' + cls).forEach(el => {
+            el.style.display = 'none'
+          })
+        })
+        if (value === 'all') {
+          document.querySelectorAll('.all-total').forEach(el => { el.style.display = '' })
+        } else if (value === 'shopping') {
+          document.querySelectorAll('.shopping-total').forEach(el => { el.style.display = '' })
+        } else if (value === 'emergency') {
+          document.querySelectorAll('.emergency-total').forEach(el => { el.style.display = '' })
+        }
       }
       select.addEventListener('change', updateDisplay)
       updateDisplay()
