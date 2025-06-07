@@ -26,3 +26,20 @@ const content = document.getElementById('device-list-content')
 toggle.addEventListener('click', function () {
   content.classList.toggle('open')
 })
+const createModal = document.getElementById('create-modal')
+const createModalCancel = document.getElementById('create-modal-cancel')
+const createModalCreate = document.getElementById('create-modal-create')
+function hideCreateModal() {
+  createModal.style.display = 'none'
+}
+createModalCancel.addEventListener('click', hideCreateModal)
+createModalCreate.addEventListener('click', hideCreateModal)
+const createButton = document.getElementById('create-button')
+createButton.addEventListener('click', function () {
+  createModal.style.display = ''
+})
+createModal.addEventListener('click', function (e) {
+  if (e.target === createModal) {
+    hideCreateModal()
+  }
+})
