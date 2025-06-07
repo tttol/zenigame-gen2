@@ -95,7 +95,7 @@
         </div>
       </div>
       <div class="mb-[3.5rem]"></div>
-      <div class="bg-green-400 text-white font-bold py-2 px-2 rounded-full w-10 ml-auto mb-3"><svg
+      <div id="create-button" class="bg-green-400 text-white font-bold py-2 px-2 rounded-full w-10 ml-auto mb-3"><svg
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
           <path fill-rule="evenodd"
             d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z"
@@ -103,6 +103,36 @@
         </svg></div>
 
 
+      <div id="create-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+        style="display:none">
+        <div class="bg-slate-400 p-4 rounded-lg text-white w-3/4">
+          <h2 class="text-xl font-bold mb-4">明細を追加</h2><input
+            class="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800  bg-white" placeholder="品目"
+            type="text" value=""><input
+            class="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800 bg-white" placeholder="金額"
+            type="number" value=""><select
+            class="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800 bg-white">
+            <option value="">ラベルを選択してください</option>
+            <option value="買い出し">買い出し</option>
+            <option value="newLabel">ラベルを新規作成</option>
+          </select><input class="border border-gray-300 rounded-lg mb-4 px-3 py-2 w-full text-slate-800 bg-white"
+            placeholder="支払い発生日" type="date" value="2025-06-08">
+          <div class="flex items-center"><input id="paidByUserA" class="mr-2 bg-white" type="radio" value="userA"><label
+              for="paidByUserA"><span>夫支払い</span><img alt="userA" loading="lazy" width="707" height="526"
+                decoding="async" data-nimg="1" class="rounded-full w-7 h-7 inline"
+                src="./ZENIGAME_files/user-a.png" style="color: transparent;"></label></div>
+          <div class="flex items-center mb-3"><input id="paidByuserB" class="mr-2" type="radio" value="userB"><label
+              for="paidByuserB"><span>妻支払い</span><img alt="userB" loading="lazy" width="128" height="128"
+                decoding="async" data-nimg="1" class="rounded-full w-7 h-7 inline"
+                src="./ZENIGAME_files/user-b.png" style="color: transparent;"></label></div>
+          <div class="flex justify-end">
+            <button id="create-modal-cancel"
+              class="bg-gray-300 hover:bg-gray-400 text-white font-bold py-2 px-4 rounded-lg mr-2">Cancel</button><button
+              id="create-modal-create"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg">Create</button>
+          </div>
+        </div>
+      </div>
 
       <div class="text-right  mb-3 mt-3 text-lg">ラベル：<select id="label-select"
           class="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-auto text-slate-800 bg-white">
