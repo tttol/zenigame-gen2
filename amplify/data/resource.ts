@@ -12,6 +12,13 @@ const schema = a.schema({
       paidAt: a.string(),
     })
     .authorization(allow => [allow.group('family')]),
+
+  Label: a
+    .model({
+      id: a.id(),
+      name: a.string().required(),
+    })
+    .authorization(allow => [allow.group('family')]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
