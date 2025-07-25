@@ -11,8 +11,11 @@ import Loading from "./Loading";
 
 const client = generateClient<Schema>();
 
-const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
-  details: items,
+const CreateItem: React.FC<{ 
+  details: Schema["Detail"]["type"][];
+  labels: Schema["Label"]["type"][];
+}> = ({
+  details: items, labels: labels
 }) => {
   dotenv.config();
   const USER_A = process.env.NEXT_PUBLIC_USER_A ?? "user A";
@@ -31,6 +34,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
   const [itemName, setItemName] = useState("");
   const [price, setPrice] = useState("");
   const [label, setLabel] = useState("");
+  const [newLabel, setNewLabel] = useState("");
   const [paidAt, setPaidAt] = useState(generateCurrentDate());
   const [paidBy, setPaidBy] = useState("");
   const [selectedLabel, setSelectedLabel] = useState("");
@@ -43,9 +47,13 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
     setPrice(e.target.value);
   };
 
-  const handleLabelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setLabel(e.target.value);
+  const handleLabelChange = (label: string) => {
+    setLabel(label);
   };
+
+  const handleNewLabelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNewLabel(e.target.value);
+  };  
 
   const handlePaidAtChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPaidAt(e.target.value);
@@ -75,15 +83,21 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
     if (!window.confirm("明細を追加しますか？")) return;
 
     try {
+      const labelToUse = newLabel !== "" ? newLabel : selectedLabel;
+      
+      if (newLabel !== "") {
+        await insertLabel();
+      }
+
       closeModal();
       setIsLoading(true);
-      const id: string = await insertItem();
+      const id: string = await insertItem(labelToUse);
       alert(`
         明細を追加しました.
           ID: ${id}
           品目: ${itemName}
           金額: ${price}
-          ラベル: ${label}
+          ラベル: ${labelToUse}
           支払日: ${paidAt}
           ${USER_A}支払い: ${paidBy === "userA" ? "済" : "未"}
           ${USER_B}支払い: ${paidBy === "userB" ? "済" : "未"}
@@ -96,13 +110,13 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
     }
   };
 
-  const insertItem = async (): Promise<string> => {
+  const insertItem = async (labelToUse: string): Promise<string> => {
     const id = generateRandomString();
     const { errors, data: newDetail } = await client.models.Detail.create({
       id: id,
       name: itemName,
       price: Number(price),
-      label: label,
+      label: labelToUse,
       paidAt: paidAt,
       paidByUserA: paidBy === "userA",
       paidByUserB: paidBy === "userB",
@@ -116,6 +130,18 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
     return id;
   };
 
+  const insertLabel = async (): Promise<void> => {
+    const id = generateRandomString();
+    const { errors } = await client.models.Label.create({
+      id: id,
+      name: newLabel
+    });
+    if (errors) {
+      alert(`認証エラーが発生しました。ログアウトします。: ${JSON.stringify(errors)}`);
+      signOut();
+    }
+  };
+
   const generateRandomString = () => {
     const chars =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -126,9 +152,9 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
     return result;
   }
 
-  const labels = Array.from(new Set(items.map((item) => item.label))).filter(
-    (label) => label !== null
-  );
+  // const labels = Array.from(new Set(items.map((item) => item.label))).filter(
+  //   (label) => label !== null
+  // );
 
   return (
     <>
@@ -174,17 +200,16 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
               placeholder="金額"
             />
             <select
-              value={label}
+              value={selectedLabel}
               onChange={(e) => {
                 setSelectedLabel(e.target.value);
-                setLabel(e.target.value);
               }}
               className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800 bg-white"
             >
               <option value="">ラベルを選択してください</option>
               {labels.map((l) => (
-                <option key={l} value={l ?? ""}>
-                  {l}
+                <option key={l.id} value={l.name}>
+                  {l.name}
                 </option>
               ))}
               <option value="newLabel">ラベルを新規作成</option>
@@ -192,7 +217,7 @@ const CreateItem: React.FC<{ details: Schema["Detail"]["type"][] }> = ({
             {selectedLabel === "newLabel" && (
               <input
                 type="text"
-                onChange={handleLabelChange}
+                onChange={handleNewLabelChange}
                 className="border border-gray-300 rounded-lg px-3 py-2 mb-4 w-full text-slate-800 bg-white"
                 placeholder="新規に作成するラベル名を入力してください"
               />

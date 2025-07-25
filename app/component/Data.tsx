@@ -41,7 +41,9 @@ const Data: React.FC = () => {
   useEffect(() => {
     fetchDetails();
     fetchLabels().then((items) => {
-      if (items) setLabels(items);
+      if (items) {
+        setLabels(items);
+      }
     });
   }, []);
 
@@ -122,7 +124,7 @@ const Data: React.FC = () => {
               <Sum labeledDetails={labeledDetails} />
               <div className="mb-[3.5rem]"></div>
               <LabeledSum allDetails={details} label="買い出し" />
-              <CreateItem details={details} />
+              <CreateItem details={details} labels={labels} />
               <div className="text-right  mb-3 mt-3 text-lg">
                 ラベル：
                 <select
