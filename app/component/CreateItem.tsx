@@ -152,10 +152,6 @@ const CreateItem: React.FC<{
     return result;
   }
 
-  // const labels = Array.from(new Set(items.map((item) => item.label))).filter(
-  //   (label) => label !== null
-  // );
-
   return (
     <>
       <div
