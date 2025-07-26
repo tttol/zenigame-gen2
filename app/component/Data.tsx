@@ -36,9 +36,15 @@ const Data: React.FC = () => {
     Schema["Detail"]["type"][]
   >([]);
   const [filteredLabel, setFilteredLabel] = useState("all");
+  const [labels, setLabels] = useState<Schema["Label"]["type"][]>([]);
 
   useEffect(() => {
     fetchDetails();
+    fetchLabels().then((items) => {
+      if (items) {
+        setLabels(items);
+      }
+    });
   }, []);
 
   const fetchDetails = async () => {
@@ -57,6 +63,20 @@ const Data: React.FC = () => {
     console.debug(`${items.length}, ${items}`);
     setDetails(items);
     setLabledDetails(items);
+  };
+
+  const fetchLabels = async () => {
+    const { errors, data: items } = await client.models.Label.list({
+      limit: 10000,
+    });
+    if (errors) {
+      alert(`ラベル取得に失敗しました ${JSON.stringify(errors)}`);
+      return;
+    }
+    if (items == undefined) return;
+
+    console.debug(`${items.length}, ${items}`);
+    return items;
   };
 
   const handleLabelChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -104,7 +124,7 @@ const Data: React.FC = () => {
               <Sum labeledDetails={labeledDetails} />
               <div className="mb-[3.5rem]"></div>
               <LabeledSum allDetails={details} label="買い出し" />
-              <CreateItem details={details} />
+              <CreateItem details={details} labels={labels} />
               <div className="text-right  mb-3 mt-3 text-lg">
                 ラベル：
                 <select
@@ -115,17 +135,14 @@ const Data: React.FC = () => {
                   <option key="all" value="all">
                     全ての明細を表示
                   </option>
-                  {Array.from(
-                    new Set(
-                      details.map((d) =>
-                        d.label === "" ? "ラベルなし" : d.label
-                      )
-                    )
-                  ).map((l) => (
-                    <option key={l} value={l ?? ""}>
-                      {l}
+                  {labels.map((label) => (
+                    <option key={label.id} value={label.name}>
+                      {label.name}
                     </option>
                   ))}
+                  <option key="ラベルなし" value="ラベルなし">
+                    ラベルなし
+                  </option>
                 </select>
               </div>
               <Detail labeledDetails={labeledDetails} />
