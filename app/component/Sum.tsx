@@ -1,6 +1,8 @@
 import { Schema } from "@/amplify/data/resource";
 import { useState } from "react";
 import dotenv from "dotenv";
+import DualSummary from "./DualSummary";
+import SingleSummary from "./SingleSummary";
 
 dotenv.config();
 
@@ -14,63 +16,12 @@ const Sum: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
 }) => {
   dotenv.config();
   const [activeTab, setActiveTab] = useState<Mode>(Mode.DUAL);
-  const USER_A = process.env.NEXT_PUBLIC_USER_A ?? "User A";
-  const USER_B = process.env.NEXT_PUBLIC_USER_B ?? "User B";
-
-  const getDebtUserA = (details: Schema["Detail"]["type"][]) =>
-    details
-      .filter((detail) => !detail.paidByUserA)
-      .reduce((sum, detail) => sum + (detail.price ?? 0), 0);
-  const getDebtUserB = (details: Schema["Detail"]["type"][]) =>
-    details
-      .filter((detail) => !detail.paidByUserB)
-      .reduce((sum, detail) => sum + (detail.price ?? 0), 0);
-
-  const debtUserA = getDebtUserA(labeledDetails);
-  const debtUserB = getDebtUserB(labeledDetails);
 
   const priceFormatter = new Intl.NumberFormat("ja-JP", {
     style: "currency",
     currency: "JPY",
   });
 
-  const renderSummaryA = () => (
-    <>
-      <div className="min-h-max m-1 p-3 bg-blue-400 text-slate-100 rounded-xl">
-        <div>
-          <p>{USER_A} - 未払い差引合計</p>
-          <p className="font-bold text-3xl">
-            {priceFormatter.format(Math.max((debtUserA - debtUserB) / 2, 0))}
-          </p>
-          <p className="text-slate-300 mt-2">
-            {priceFormatter.format(debtUserA / 2)}(差引前)
-          </p>
-        </div>
-      </div>
-      <div className="min-h-max m-1 mt-3 p-3 bg-pink-400 text-slate-100 rounded-xl">
-        <div>
-          <p>{USER_B} - 未払い差引合計</p>
-          <p className="font-bold text-3xl">
-            {priceFormatter.format(Math.max((debtUserB - debtUserA) / 2, 0))}
-          </p>
-          <p className="text-slate-300 mt-2">
-            {priceFormatter.format(debtUserB / 2)}(差引前)
-          </p>
-        </div>
-      </div>
-    </>
-  );
-
-  const renderSummaryB = () => (
-    <div className="min-h-max m-1 p-3 bg-green-400 text-slate-100 rounded-xl">
-      <div>
-        <p className="text-lg font-medium">別のサマリー (ダミー)</p>
-        <p className="text-sm mt-2">今月の総支出: {priceFormatter.format(labeledDetails.reduce((sum, detail) => sum + (detail.price ?? 0), 0))}</p>
-        <p className="text-sm">登録アイテム数: {labeledDetails.length}件</p>
-        <p className="text-sm">平均単価: {priceFormatter.format(labeledDetails.length > 0 ? labeledDetails.reduce((sum, detail) => sum + (detail.price ?? 0), 0) / labeledDetails.length : 0)}</p>
-      </div>
-    </div>
-  );
 
   return (
     <div className="min-h-max bg-blue-600 text-slate-100 rounded-xl my-3 overflow-hidden">
@@ -98,7 +49,17 @@ const Sum: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
       </div>
       
       <div className="p-3">
-        {activeTab === Mode.DUAL ? renderSummaryA() : renderSummaryB()}
+        {activeTab === Mode.DUAL ? (
+          <DualSummary 
+            labeledDetails={labeledDetails} 
+            priceFormatter={priceFormatter} 
+          />
+        ) : (
+          <SingleSummary 
+            labeledDetails={labeledDetails} 
+            priceFormatter={priceFormatter} 
+          />
+        )}
       </div>
     </div>
   );
