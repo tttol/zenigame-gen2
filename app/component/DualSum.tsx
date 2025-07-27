@@ -32,7 +32,7 @@ const DualSum: React.FC<DualSumProps> = ({
     <>
       <div className="min-h-max m-1 p-3 bg-blue-400 text-slate-100 rounded-xl">
         <div>
-          <p>{USER_A} - 未払い差引合計</p>
+          <p>{USER_A} - 未払い差引額合計</p>
           <p className="font-bold text-3xl">
             {priceFormatter.format(Math.max((debtUserA - debtUserB) / 2, 0))}
           </p>
@@ -43,7 +43,7 @@ const DualSum: React.FC<DualSumProps> = ({
       </div>
       <div className="min-h-max m-1 mt-3 p-3 bg-pink-400 text-slate-100 rounded-xl">
         <div>
-          <p>{USER_B} - 未払い差引合計</p>
+          <p>{USER_B} - 未払い差引額合計</p>
           <p className="font-bold text-3xl">
             {priceFormatter.format(Math.max((debtUserB - debtUserA) / 2, 0))}
           </p>

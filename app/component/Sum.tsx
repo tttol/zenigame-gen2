@@ -15,7 +15,7 @@ const Sum: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
   labeledDetails: labeledDetails,
 }) => {
   dotenv.config();
-  const [activeTab, setActiveTab] = useState<Mode>(Mode.DUAL);
+  const [activeTab, setActiveTab] = useState<Mode>(Mode.SINGLE);
 
   const priceFormatter = new Intl.NumberFormat("ja-JP", {
     style: "currency",
