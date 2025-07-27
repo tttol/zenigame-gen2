@@ -1,8 +1,8 @@
 import { Schema } from "@/amplify/data/resource";
 import { useState } from "react";
 import dotenv from "dotenv";
-import DualSummary from "./DualSummary";
-import SingleSummary from "./SingleSummary";
+import DualSum from "./DualSum";
+import SingleSum from "./SingleSum";
 
 dotenv.config();
 
@@ -50,12 +50,12 @@ const Sum: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
       
       <div className="p-3">
         {activeTab === Mode.DUAL ? (
-          <DualSummary 
+          <DualSum 
             labeledDetails={labeledDetails} 
             priceFormatter={priceFormatter} 
           />
         ) : (
-          <SingleSummary 
+          <SingleSum 
             labeledDetails={labeledDetails} 
             priceFormatter={priceFormatter} 
           />

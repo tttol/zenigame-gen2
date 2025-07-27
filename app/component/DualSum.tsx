@@ -3,12 +3,12 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-interface DualSummaryProps {
+interface DualSumProps {
   labeledDetails: Schema["Detail"]["type"][];
   priceFormatter: Intl.NumberFormat;
 }
 
-const DualSummary: React.FC<DualSummaryProps> = ({
+const DualSum: React.FC<DualSumProps> = ({
   labeledDetails,
   priceFormatter,
 }) => {
@@ -56,4 +56,4 @@ const DualSummary: React.FC<DualSummaryProps> = ({
   );
 };
 
-export default DualSummary;
+export default DualSum;

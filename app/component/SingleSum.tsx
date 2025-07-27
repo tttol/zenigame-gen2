@@ -1,11 +1,11 @@
 import { Schema } from "@/amplify/data/resource";
 
-interface SingleSummaryProps {
+interface SingleSumProps {
   labeledDetails: Schema["Detail"]["type"][];
   priceFormatter: Intl.NumberFormat;
 }
 
-const SingleSummary: React.FC<SingleSummaryProps> = ({
+const SingleSum: React.FC<SingleSumProps> = ({
   labeledDetails,
   priceFormatter,
 }) => {
@@ -21,4 +21,4 @@ const SingleSummary: React.FC<SingleSummaryProps> = ({
   );
 };
 
-export default SingleSummary;
+export default SingleSum;
