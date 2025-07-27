@@ -1,14 +1,14 @@
 import { Schema } from "@/amplify/data/resource";
 import { render, screen } from "@testing-library/react";
 import { beforeAll, expect, test } from "vitest";
-import Sum from "./Sum";
+import DualSum from "./DualSum";
 
 beforeAll(() => {
   process.env.NEXT_PUBLIC_USER_A = "User A";
   process.env.NEXT_PUBLIC_USER_B = "User B";
 });
 
-test("Sum", () => {
+test("DualSum", () => {
   const details: Schema["Detail"]["type"][] = [
     {
       id: "1",
@@ -44,13 +44,24 @@ test("Sum", () => {
       updatedAt: "2000-01-01",
     },
   ];
-  render(<Sum labeledDetails={details as Schema["Detail"]["type"][]} />);
+
+  const priceFormatter = new Intl.NumberFormat("ja-JP", {
+    style: "currency",
+    currency: "JPY",
+  });
+
+  render(
+    <DualSum 
+      labeledDetails={details as Schema["Detail"]["type"][]} 
+      priceFormatter={priceFormatter}
+    />
+  );
 
   const actualSumA =
-    screen.getByText("User A - 未払い差引合計").nextSibling?.textContent;
+    screen.getByText("User A - 未払い差引額合計").nextSibling?.textContent;
   expect(actualSumA).toBe("￥1,750");
 
   const actualSumB =
-    screen.getByText("User B - 未払い差引合計").nextSibling?.textContent;
+    screen.getByText("User B - 未払い差引額合計").nextSibling?.textContent;
   expect(actualSumB).toBe("￥0");
 });

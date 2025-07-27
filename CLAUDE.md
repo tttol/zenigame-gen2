@@ -2,10 +2,6 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## 言語設定
-
-**重要**: このプロジェクトでは、Claude Codeとのやり取りは常に日本語で行ってください。ユーザーが英語でプロンプトを送信しても、回答、説明、コメントなどすべて日本語で生成してください。
-
 ## Common Commands
 
 - `npm run dev` - Start development server (Next.js)
