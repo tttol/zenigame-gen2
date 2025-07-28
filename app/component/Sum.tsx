@@ -28,7 +28,7 @@ const Sum: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
       <div className="flex bg-blue-900 rounded-t-xl">
         <button
           onClick={() => setActiveTab(Mode.DUAL)}
-          className={`flex-1 px-4 py-3 text-2xl font-bold transition-all duration-200 ${
+          className={`flex-1 px-4 py-3 text-xl font-bold transition-all duration-200 ${
             activeTab === Mode.DUAL
               ? "bg-blue-600 text-white rounded-tl-xl"
               : "bg-blue-900 text-blue-300 hover:bg-blue-700 hover:text-white rounded-tl-xl"
@@ -38,7 +38,7 @@ const Sum: React.FC<{ labeledDetails: Schema["Detail"]["type"][] }> = ({
         </button>
         <button
           onClick={() => setActiveTab(Mode.SINGLE)}
-          className={`flex-1 px-4 py-3 text-2xl font-bold transition-all duration-200 ${
+          className={`flex-1 px-4 py-3 text-xl font-bold transition-all duration-200 ${
             activeTab === Mode.SINGLE
               ? "bg-blue-600 text-white rounded-tr-xl"
               : "bg-blue-900 text-blue-300 hover:bg-blue-700 hover:text-white rounded-tr-xl"
