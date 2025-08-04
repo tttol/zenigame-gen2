@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import CreateItem from "./CreateItem";
 import Detail from "./Detail";
 import Fido2SignIn from "./Fido2SignIn";
-import LabeledSum from "./LabeledSum";
+import Labeled from "./Labeled";
 import LoginUserInfo from "./LoginUserInfo";
 import ManageDevice from "./ManageDevice";
 import SignOutButton from "./SignOutButton";
@@ -123,7 +123,7 @@ const Data: React.FC = () => {
               <ManageDevice />
               <Sum labeledDetails={labeledDetails} />
               <div className="mb-[3.5rem]"></div>
-              <LabeledSum allDetails={details} label="買い出し" />
+              <Labeled allDetails={details} labels={["買い出し"]} />
               <CreateItem details={details} labels={labels} />
               <div className="text-right  mb-3 mt-3 text-lg">
                 ラベル：
