@@ -123,7 +123,7 @@ const Data: React.FC = () => {
               <ManageDevice />
               <Sum labeledDetails={labeledDetails} />
               <div className="mb-[3.5rem]"></div>
-              <Labeled allDetails={details} labels={["買い出し"]} />
+              <Labeled allDetails={details} labels={labels} />
               <CreateItem details={details} labels={labels} />
               <div className="text-right  mb-3 mt-3 text-lg">
                 ラベル：

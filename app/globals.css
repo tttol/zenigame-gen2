@@ -117,7 +117,7 @@ a {
     opacity: 0;
   }
   .transition-height.show {
-    max-height: 500px;
+    max-height: 5000px;
     opacity: 1;
   }
 }

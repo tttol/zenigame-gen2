@@ -34,6 +34,8 @@ const LabeledSum: React.FC<{
     currency: "JPY",
   });
 
+  if (sumA === 0 && sumB === 0) return;
+
   return (
     <div className="min-h-max p-3 bg-purple-400 text-slate-100 rounded-xl my-3">
       <p className="text-xl mb-3 font-bold">{label}</p>
