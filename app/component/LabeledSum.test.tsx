@@ -73,11 +73,11 @@ test("LabeledSum", () => {
 
   // sumAの検証
   const actualSumA =
-    screen.getByText("User A - 支出合計").nextSibling?.textContent;
+    screen.getByText("User A").nextSibling?.textContent;
   expect(actualSumA).toBe("￥5,000");
 
   // sumBの検証
   const actualSumB =
-    screen.getByText("User B - 支出合計").nextSibling?.textContent;
+    screen.getByText("User B").nextSibling?.textContent;
   expect(actualSumB).toBe("￥2,000");
 });

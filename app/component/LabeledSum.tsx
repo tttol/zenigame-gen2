@@ -34,19 +34,21 @@ const LabeledSum: React.FC<{
     currency: "JPY",
   });
 
+  if (sumA === 0 && sumB === 0) return;
+
   return (
     <div className="min-h-max p-3 bg-purple-400 text-slate-100 rounded-xl my-3">
-      <p className="text-3xl mb-3 font-bold">「{label}」の支出合計</p>
+      <p className="text-xl mb-3 font-bold">{label}</p>
       <div className="flex">
         <div className="min-h-max m-1 p-3 bg-blue-500 text-slate-100 rounded-xl w-1/2">
           <div>
-            <p>{USER_A} - 支出合計</p>
+            <p>{USER_A}</p>
             <p className="text-3xl">{priceFormatter.format(sumA)}</p>
           </div>
         </div>
         <div className="min-h-max m-1 p-3 bg-pink-500 text-slate-100 rounded-xl w-1/2">
           <div>
-            <p>{USER_B} - 支出合計</p>
+            <p>{USER_B}</p>
             <p className="text-3xl">{priceFormatter.format(sumB)}</p>
           </div>
         </div>
