@@ -33,12 +33,21 @@ ZENIGAME is a personal finance management app built with:
 - `amplify/backend.ts` - Main backend configuration with Cognito and passwordless auth setup
 - `app/page.tsx` - Main application page with Header, AppVersion, and Data components
 - `app/component/Data.tsx` - Core data management component
+- `app/component/Sum.tsx` - Summary component with tab-based mode switching (Dual/Single)
+- `app/component/DualSum.tsx` - Dual mode summary (折半モード) - calculates split payments between two users
+- `app/component/SingleSum.tsx` - Single mode summary (一馬力モード) - calculates total unpaid amount for one user
 - `vitest.config.ts` - Test configuration with jsdom environment
 
 ### Environment Variables
 
 - `NEXT_FRONTEND_URL` - Frontend URL for CORS (defaults to http://localhost:3000)
 - `NEXT_FRONTEND_HOST` - Frontend host for WebAuthn relying party (defaults to localhost)
+
+### Summary Modes
+
+The app supports two summary calculation modes:
+- **Dual Mode (折半モード)**: Calculates the split payment difference between two users. Each user pays half of the total expenses.
+- **Single Mode (一馬力モード)**: Calculates the total unpaid amount for User A, showing individual and total expenditures.
 
 ## Development Notes
 
